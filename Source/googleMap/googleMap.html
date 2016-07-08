@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+  <script src="googleMap.js"></script>
+  <script defer src="http://maps.google.com/maps/api/js?key=AIzaSyB6Lz24NEsy8I_cDxm6vUVGXlqwNlkC2yk&language=en&callback=initMap"></script>
+</head>
+
+<body style="height:800px">
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
+  <nav style="height:40px">
+    <div class="nav-wrapper" style="background-color:#71ABA7;">
+      <a href="#" class="brand-logo left"><img src="../../images/png/logo.png" height="20px" width="80px" style="margin-left:20px; margin-bottom:12px"></img></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">one<span class="badge">3</span></a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Logout</a></li>
+          </ul>
+
+          <div class="input-field" style="margin-right:20px; margin-bottom:30px;">
+            <input type="search" style="height:25px; width:100px; margin-top:8px;" />
+            <label for="search"><img src="../../images/png/search.png" height="15px" width="15px" style="margin-bottom:14px"></img></label>
+          </div>
+        </li>
+        <li>
+          <a href="#!" style="height:40px; width:50px; margin-bottom:4px">
+            <img src="../../images/png/notification.png" height="25px" width="20px" />
+          </a>
+        </li>
+        <li>
+          <a href="#!" class="dropdown-button" style="height:40px; width:50px; margin-right:10px; margin-bottom:4px" data-activates="dropdown1">
+            <img src="../../images/png/gear.png" height="25px" width="25px"  />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="row" style="height:87%;">
+    <!-- Events -->
+    <aside class="col s12 m12 l3" style="height:100%; margin-top:1.3%">
+      <ul class="collapsible" style="overflow:scroll; height:100%; width:100%;">
+        <!-- Events will be located in here. You can remove all the "test" sample in here(and this comment).  -->
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span id="target1" class="collapsible-header">test</span>
+          <span id="target2" class="collapsible-body">test</span>
+        </li>
+        <li>
+          <span class="collapsible-header">test</span>
+          <span class="collapsible-body">test</span>
+        </li>
+ 
+      </ul>
+    </aside>
+    <!-- Map -->
+    <section class="col s12 m12 l9" id="mapholder" style="height:100%; width:75%;"></section>
+
+  </main>
+</body>
+
+</html>
