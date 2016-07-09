@@ -9,14 +9,49 @@ var labelIndex = 0;
 function initMap() {
   var mapholder = document.getElementById("mapholder");
   var UCSCLatlon = new google.maps.LatLng(36.9923454, -122.0613478);
+  var maxZoomLevel = 15;
+
   var myOptions = {
     center: UCSCLatlon,
-    zoom: 15,
+    zoom: maxZoomLevel,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    mapTypeControl: true,
     navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL }
   }
   map = new google.maps.Map(mapholder, myOptions);
+
+
+  // Bounds for UCSC
+  var strictBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(36.977536, -122.068339),
+    new google.maps.LatLng(37.005027, -122.052031)
+  );
+
+  // Listen for the dragend event
+  google.maps.event.addListener(map, 'dragend', function () {
+    if (strictBounds.contains(map.getCenter())) return;
+
+    // We're out of bounds - Move the map back within the bounds
+
+    var c = map.getCenter(),
+        x = c.lng(),
+        y = c.lat(),
+        maxX = strictBounds.getNorthEast().lng(),
+        maxY = strictBounds.getNorthEast().lat(),
+        minX = strictBounds.getSouthWest().lng(),
+        minY = strictBounds.getSouthWest().lat();
+
+    if (x < minX) x = minX;
+    if (x > maxX) x = maxX;
+    if (y < minY) y = minY;
+    if (y > maxY) y = maxY;
+
+    map.setCenter(new google.maps.LatLng(y, x));
+  });
+
+  // Limit the zoom level
+  google.maps.event.addListener(map, 'zoom_changed', function () {
+    if (map.getZoom() < maxZoomLevel) map.setZoom(maxZoomLevel);
+  });
 }
 
 /*
