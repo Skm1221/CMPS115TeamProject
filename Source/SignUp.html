@@ -134,7 +134,7 @@
         }
         .verify input {
             display: inline-block;
-            width: 40%;
+            width: 48%;
             margin-right: 9px;
         }
         .verify button {
@@ -237,8 +237,10 @@
             alert("Please Check the ID Duplication");
         } else if ($("#User_pw").val() === "") {
             alert("Please Enter your Password");
+        } else if ($("#User_pw_check").val() === "") {
+            alert("Please Confirm your Password");
         } else if ($("#User_pw").val() != $("#User_pw_check").val()) {
-            alert("Password are not differnet");
+            alert("Passwords don't match");
         } else if ($("#User_firstname").val() === "") {
             alert("Please Enter your Firstname");
         } else if ($("#User_lastname").val() === "") {
@@ -248,7 +250,7 @@
         } else if ($("#User_division").val() === "Division") {
             alert("Please Choose your Division");
         } else if (!email_check || checked_mail != $("#User_email").val()) {
-            alert("Please verify your KAIST E-mail");
+            alert("Please Verify your UCSC E-mail");
         } else{
             u_id = $("#User_id").val();
             u_pw = $("#User_pw").val();
@@ -259,7 +261,7 @@
             u_email = $("#User_email").val();
             $.ajax({
                 type: "POST",
-                url: "./Source/SignUp.php",
+                url: "SignUp.php",
                 data: {
                     "id" : u_id,
                     "pw" : u_pw,
@@ -271,7 +273,7 @@
                 },
                 success: function(html){
                     if (html == "true") {
-                        window.location = "./Source/Login_UCSC.html";
+                        window.location = "./Login_UCSC.html";
                     } else {
                         $("div#error_message").html("Sign up error!");
                     }
@@ -289,7 +291,7 @@
             u_id = $("#User_id").val();
             $.ajax({
                 type: "POST",
-                url: "./Source/userNameDuplicationCheck.php",
+                url: "userNameDuplicationCheck.php",
                 data: {
                     "id" : u_id
                 },
@@ -297,13 +299,11 @@
                     if (html == "true") {
                         id_dupcheck = true;
                         checked_id = u_id;
-                        $("div#id_error_message").html("Success");
-                        setTimeout(function() { $("div#id_error_message").hide();}, 5000);
+                        document.getElementById("id_error_message").style.display = "none";
+                        alert("You can use this username!");
                     } else {
                         $("div#id_error_message").html("Duplicated ID");
                     }
-                },beforeSend: function() {
-                    $("div#id_error_message").html("Loading");
                 }
             })
         }
@@ -316,18 +316,17 @@
             u_email = $("#User_email").val();
             $.ajax({
                 type: "POST",
-                url: "./Source/sendPrivateKeyToEmail.php",
+                url: "sendPrivateKeyToEmail.php",
                 data: {
                     "email" : u_email
                 },
                 success: function(html){
+                    $("div#mail_error_message").html("");
                     html = JSON.parse(html);
                     pKey = html.privateKey;
                     var li = document.getElementById("hide");
                     li.style.display = "block";
                     checked_mail = u_email;
-                },beforeSend: function(){
-                    $("div#mail_error_message").html("Loading");
                 }
             })
         }
