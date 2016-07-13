@@ -10,26 +10,63 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta charset="UTF-8">
-  <script src="googleMapAPI.js"></script>
-  <script defer src="http://maps.google.com/maps/api/js?key=AIzaSyB6Lz24NEsy8I_cDxm6vUVGXlqwNlkC2yk&language=en&callback=initMap"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="http://maps.google.com/maps/api/js?key=AIzaSyB6Lz24NEsy8I_cDxm6vUVGXlqwNlkC2yk&language=en"></script>
+  <script src="jqueryGoogleMapAPI/jquery.googlemap.js"></script>
 </head>
 
 <body style="height:800px">
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
   <script>
-    //Script that allows modals to work
-    $(document).ready(function(){
+    //document.ready
+    $(function(){
+      //Script that allows modals to work
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal-trigger').leanModal();
-    });
-    //Script that allows select to work
-    $(document).ready(function() {
-      $('select').material_select();
-    });
 
+      //Script that allows date to work
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 16 // Creates a dropdown of 15 years to control year
+      });
+
+      //Script that send search data to server
+      $('#search').click(function(){
+        $.ajax({
+          url: "getPostingListByFilter.php",
+          data: {
+            major: $('#major').val(),
+            category: $('#category').val(),
+            startDate: $('#startDate').val(),
+            endDate: $('#endDate').val()
+          },
+          success: function(result, status, xhr) {
+            //TO BE IMPLEMENTED
+            console.log("Data: " + data) + "\nStatus: " + status;
+          },
+          error: function(xhr, status, error) {
+            alert("An error occured: " + xhr.status + " " + xhr.statusText);
+          }
+        });
+      });
+      //Script that allows select to work
+      $('select').material_select();
+
+      //doesn't work
+      $('#startDate').change(function(){
+        $('#endDate').val($('$startDate').val());
+      });
+
+      //googleMapAPI
+      $('#mapholder')
+        .googleMap({
+          coords: [36.9923454, -122.0613478],
+          zoom: 15,
+          type: "ROADMAP",
+          scrollwheel: true
+        });
+    });
   </script>
 
   
@@ -60,10 +97,10 @@
           </select>
         </li>
         <li style="margin-right:1rem">
-          <input id="startDate" placeholder="start date" type="date" class="datepicker" onclick="$('.datepicker').pickadate();"></input>
+          <input id="startDate" placeholder="start date" type="date" class="datepicker"></input>
         </li>
         <li>
-          <input id="endDate" placeholder="end date" type="date" class="datepicker" onclick="$('.datepicker').pickadate();"></input>
+          <input id="endDate" placeholder="end date" type="date" class="datepicker"></input>
         </li>
         <li style="margin-right:2rem;">
           <a id="search" style="height:40px; width:50px;"><img src="../images/png/search.png" height="20px" width="20px" style="margin-top:10px"></img></a>
@@ -214,22 +251,6 @@
     </aside>
     <!-- Map -->
     <section class="col s12 m12 l9" id="mapholder" style="height:100%; width:75%; margin-top:0.5%;"></section>
-  <script>
-    $('#search').click(function(){
-      $.post("getPostingListByFilter.php",
-        {
-          major: $('#major').val(),
-          category: $('#category').val(),
-          startDate: $('#startDate').val(),
-          endDate: $('#endDate').val()
-        },
-        function(data, status){
-          //YET
-          alert("Data: " + data + "\nStatus: " + status);
-        });
-    });
-
-  </script>
   </main>
 </body>
 
