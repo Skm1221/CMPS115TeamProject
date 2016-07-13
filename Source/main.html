@@ -50,7 +50,7 @@
         var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(endDateString[1].substring(0,3))/3+1;
         newEndDateString = newEndDateString
           .replace("D", endDateString[0]<10 ? "0"+endDateString[0] : endDateString[0])
-          .replace("M", newMonth<10 ? "0"+newMonth : newMonth);
+          .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
           .replace("Y", endDateString[2]);
 
 
