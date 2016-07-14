@@ -34,27 +34,38 @@
 
       //Script that send search data to server
       $('#search').click(function(){
-        if ($('#startDate').val() == "" || $('#endDate').val() == "") {
-          alert("You should select both dates");
-          return;
-        } 
+        var newStartDateString, newEndDateString;
+        if ($('#startDate').val() == ""){
+          var fullDate = new Date()
+          //convert month to 2 digits
+          var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+          newStartDateString = fullDate.getFullYear() + "/" + twoDigitMonth + "/" + fullDate.getDate();
+        } else {
+          newStartDateString = "Y/M/D";
+          var startDateString = $('#startDate').val().split(/[,]? /);
+          var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(startDateString[1].substring(0,3))/3+1;
+          newStartDateString = newStartDateString
+            .replace("D", startDateString[0]<10 ? "0"+startDateString[0] : startDateString[0])
+            .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
+            .replace("Y", startDateString[2]);
+        }
+        if ($('#endDate').val() == "") {
+          newEndDateString = "nnull";
+        } else {
+          newEndDateString = "Y/M/D";
+          var endDateString = $('#endDate').val().split(/[,]? /);
+          var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(endDateString[1].substring(0,3))/3+1;
+          newEndDateString = newEndDateString
+            .replace("D", endDateString[0]<10 ? "0"+endDateString[0] : endDateString[0])
+            .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
+            .replace("Y", endDateString[2]);
+        }
+        console.log(newStartDateString);
+        console.log(newEndDateString);
 
-        var newStartDateString = "Y/M/D";
-        var startDateString = $('#startDate').val().split(/[,]? /);
-        var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(startDateString[1].substring(0,3))/3+1;
-        newStartDateString = newStartDateString
-          .replace("D", startDateString[0]<10 ? "0"+startDateString[0] : startDateString[0])
-          .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
-          .replace("Y", startDateString[2]);
-        var newEndDateString = "Y/M/D";
-        var endDateString = $('#endDate').val().split(/[,]? /);
-        var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(endDateString[1].substring(0,3))/3+1;
-        newEndDateString = newEndDateString
-          .replace("D", endDateString[0]<10 ? "0"+endDateString[0] : endDateString[0])
-          .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
-          .replace("Y", endDateString[2]);
 
         $.ajax({
+          type: "POST",
           url: "getPostingListByFilter.php",
           data: {
             major: $('#major').val(),
