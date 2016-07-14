@@ -92,6 +92,7 @@ $(function() {
 			icon : false,
 			draggable : false,
 			title : "",
+			animation: false,
 			text : "",
 			success : function() {}
 		}, params);
@@ -133,6 +134,7 @@ $(function() {
 									map: $this.data('googleMap'),
 									position: results[0].geometry.location,
 									title: params.title,
+									animation: params.animation,
 									icon: params.icon,
 									draggable: params.draggable
 								});
@@ -141,6 +143,7 @@ $(function() {
 									map: $that.data('googleMap'),
 									position: results[0].geometry.location,
 									title: params.title,
+									animation: params.animation,
 									draggable: params.draggable
 								});
 							}
@@ -207,6 +210,7 @@ $(function() {
 						map: $this.data('googleMap'),
 						position: new google.maps.LatLng(params.coords[0], params.coords[1]),
 						title: params.title,
+						animation: params.animation,
 						icon: params.icon,
 						draggable: params.draggable
 					});
@@ -215,6 +219,7 @@ $(function() {
 						map: $this.data('googleMap'),
 						position: new google.maps.LatLng(params.coords[0], params.coords[1]),
 						title: params.title,
+						animation: params.animation,
 						draggable: params.draggable
 					});
 				}
@@ -260,6 +265,7 @@ $(function() {
 				} else {
 					$this.data('googleMap').fitBounds($this.data('googleBound'));
 				}
+
 
 				params.success({
 					lat: params.coords[0],
