@@ -7,6 +7,7 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection"/>
 
+
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta charset="UTF-8">
@@ -46,13 +47,14 @@
           .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
           .replace("Y", startDateString[2]);
         var newEndDateString = "Y/M/D";
-        var endDateString = $('#startDate').val().split(/[,]? /);
+        var endDateString = $('#endDate').val().split(/[,]? /);
         var newMonth =  "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(endDateString[1].substring(0,3))/3+1;
         newEndDateString = newEndDateString
           .replace("D", endDateString[0]<10 ? "0"+endDateString[0] : endDateString[0])
           .replace("M", newMonth<10 ? "0"+newMonth : newMonth)
           .replace("Y", endDateString[2]);
-
+        console.log("StartDate: "+newStartDateString);
+        console.log("EndDate: "+newEndDateString);
 
         $.ajax({
           url: "getPostingListByFilter.php",
@@ -73,11 +75,6 @@
       });
       //Script that allows select to work
       $('select').material_select();
-
-      //doesn't work
-      $('#startDate').change(function(){
-        $('#endDate').val($('$startDate').val());
-      });
 
       //googleMapAPI
       $('#mapholder')
