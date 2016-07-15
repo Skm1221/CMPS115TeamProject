@@ -30,7 +30,12 @@
 }
 .evtDetail{
 	font-style: italic;
+	font-size: 16pt;
 }
 #evtDetailTrigger{
 	color: orange;
+}
+.evtSimpleInfo{
+	font-size: 13pt;
+	padding-left: 25pt;
 }
