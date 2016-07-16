@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection"/>
   <!--Import event expand view css-->
   <link type="text/css" rel="stylesheet" href="materialize/css/expandview.css"/>
+  <link type="text/css" rel="stylesheet" href="mainPage.css"/>
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -157,153 +158,128 @@
     </div>
   </nav>
   <main class="row" style="height:87%;">
+    <!-- Map -->
+    <section class="col s12 l9 push-l3" id="mapholder"></section>
     <!-- Events -->
-    <aside class="col s12 m12 l3" style="height:100%; margin-top:0.5%;">
-      <ul class="collapsible" style="overflow:scroll; height:100%; width:100%;">
-        <!-- Events will be located in here. You can remove all the "test" sample in here(and this comment).  -->
-          <li class="scrollspy" id="evt5">
-          <a href="#evt5" class="collapsible-header">test</a>
-          <span class="collapsible-body">test</span>
-        </li>
-       <li class="scrollspy" id="evt4">
-          <a href="#evt4" class="collapsible-header">test</a>
-          <span class="collapsible-body">test</span>
-        </li>
-       <li class="scrollspy" id="evt3">
-          <a href="#evt3" class="collapsible-header">test</a>
-          <span class="collapsible-body">test</span>
-        </li>
-
-        <li class="scrollspy" id="evt2">
-          
-          <a href="#evt2" class="collapsible-header">
-            <div class="evtName">Event Name</div>
-            <div class="evtRating">3.5</div>
-            <div class="evtCreator">event creator name</div>
+    <aside class="col s12 l3 pull-l9">
+      <ul class="collapsible collapsible-event">
+        <li>
+          <a onClick="toggleHeader('evt1');" id="evt1Header" class="collapsible-header betweenGreenDeep-text eventHeader">
+            <h1> Title </h1>
+            <div id="evt1Rating" class="eventRating hide">
+              <h3 id="evt1RatingNum">3.5</h3>
+            </div>
+            <p id="evt1Owner" class="eventOwner hide"> event creator name </p>
           </a>
-          
-          <span class="collapsible-body">
-            <!-- Event buttons -->
-            <div class="evtBtns">
-              <a href="#!" class="evtBtnEnter">
-                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
-                Enter</a>
-              <a href="#!" class="evtBtnMessage">
-                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
-                Message</a>
-              <a href="#!" class="evtBtnShare">
-                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
-                Share</a>
+          <div class="collapsible-body" class="hide">
+            <div class="row">
+              <a onClick="joinEvent('evt1');" class="joinBtn">
+                <div class="col s4">
+                  <i class="betweenGreenDeep-text material-icons eventIcons large">open_in_browser</i>
+                  <h5 class="betweenGreenDeep-text center-align"> Enter </h5>
+                </div>
+              </a>
+              <a onClick="messageOwner('evt1');" class="messageBtn">
+                <div class="col s4">
+                  <i class="betweenGreenDeep-text material-icons eventIcons large">email</i>
+                  <h5 class="betweenGreenDeep-text center-align"> Message </h5>
+                </div>
+              </a>
+              <a onClick="shareEvent('evt1');" class="shareBtn">
+                <div class="col s4">
+                  <i class="betweenGreenDeep-text material-icons eventIcons large">share</i>
+                  <h5 class="betweenGreenDeep-text center-align"> Share </h5>
+                </div>
+              </a>
             </div>
-
-            <p>Here are some details that I am just putting here. Here are some details that I am just putting here. Here are some details that I am just putting here. Here are...<a class="modal-trigger" id="evtDetailTrigger" href="#moreDetails1">more info</a></p>
-
-            <div class="evtSimpleInfo">
-              <img src="../images/png/clock.png" height="30px" width="30px" style="position:relative;margin-top:5px;margin-left:20px;margin-right:20px;top:8px;"/>
-              <h3 id="event_time">time</h3>
-            </div>
-            <div class="evtSimpleInfo">
-              <img src="../images/png/person.png" height="30px" width="30px" style="position:relative;margin-top:10px;margin-left:20px;margin-right:20px;top:8px;"/>
-              attendace</div>
-            <div class="evtSimpleInfo">
-              <img src="../images/png/location.png" height="30px" width="20px" style="position:relative;margin-top:10px;margin-left:25px;margin-right:25px;top:8px;"/>
-              location</div>
-            <div class="evtSimpleInfo">
-              <img src="../images/png/homepage.png" height="30px" width="30px" style="position:relative;margin-top:10px;margin-left:20px;margin-right:20px;top:8px;"/>
-              homepage</div>
-
-            <!-- Modal Structure for details page -->
-            <div id="moreDetails1" class="modal modal-fixed-footer">
-              <div class="modal-content">
-                <h4>Event Details</h4>
-                <p>Add all event details</p>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+            <hr class="sectionDivider" />
+            <div class="row">
+              <div class="col s12">
+                <p class="eventDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...<a onClick="moreInfo('evt1');">more info</a></p>
               </div>
             </div>
-
-          </span>
+            <div class="row">
+              <div class="eventDetails col s1 offset-s1">
+                <i class="betweenGreenDeep-text material-icons eventDetails medium">schedule</i>
+              </div>
+              <div class="eventDetails col s9">
+                <p id="evt1time">time</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="eventDetails col s1 offset-s1">
+                <i class="betweenGreenDeep-text material-icons eventDetails medium">perm_identity</i>
+              </div>
+              <div class="eventDetails col s9">
+                <p id="evt1time">attendance</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="eventDetails col s1 offset-s1">
+                <i class="betweenGreenDeep-text material-icons eventDetails medium">location_on</i>
+              </div>
+              <div class="eventDetails col s9">
+                <p id="evt1time">location</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="eventDetails col s1 offset-s1">
+                <i class="betweenGreenDeep-text material-icons eventDetails medium">home</i>
+              </div>
+              <div class="eventDetails col s9">
+                <p id="evt1time">homepage</p>
+              </div>
+            </div>
+            <hr class="sectionDivider" />
+            <div class="row">
+              <div id="evt1Reviews" class="eventReviews col s12">
+                <h1 class="betweenGreenDeep-text"> Reviews </h1>
+              </div>
+              <div class="eventRatings col s10 offset-s1">
+                <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
+              </div>
+            </div>
+            <div class="row">
+              <div id="evt1Replies" class="eventReplies col s12">
+                <h1 class="betweenGreenDeep-text"> Reply </h1>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a onClick="toggleHeader('evt2');" id="evt2Header" class="collapsible-header betweenGreenDeep-text eventHeader">
+            <h1> Title </h1>
+            <div id="evt2Rating" class="eventRating hide">
+              <h3 id="evt2RatingNum">3.5</h3>
+            </div>
+            <p id="evt2Owner" class="eventOwner hide"> event creator name </p>
+          </a>
+          <div class="collapsible-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </li>
+        <li>
+          <a onClick="toggleHeader('evt3');" id="evt3Header" class="collapsible-header betweenGreenDeep-text eventHeader">
+            <h1> Title </h1>
+            <div id="evt3Rating" class="eventRating hide">
+              <h3 id="evt3RatingNum">3.5</h3>
+            </div>
+            <p id="evt3Owner" class="eventOwner hide"> event creator name </p>
+          </a>
+          <div class="collapsible-body">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </li>
         
-        </li>
-        <li class="scrollspy" id="evt1">
-          <a href="#evt1" class="collapsible-header">test</a>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span id="target1" class="collapsible-header">test</span>
-          <span id="target2" class="collapsible-body">test</span>
-        </li>
-        <li>
-          <span class="collapsible-header">test</span>
-          <span class="collapsible-body">test</span>
-        </li>
- 
       </ul>
     </aside>
-    <!-- Map -->
-    <section class="col s12 m12 l9" id="mapholder" style="height:100%; width:75%; margin-top:0.5%;"></section>
   </main>
+  
+  <script src="ExpandedView.js"></script>
 </body>
 
 </html>

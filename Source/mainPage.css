@@ -1,0 +1,339 @@
+/* Between Green */
+
+.betweenGreen {
+  background-color: #50BDB8;
+}
+
+.betweenGreen-text {
+  color: #50BDB8;
+}
+
+.betweenGreen-border {
+  border: solid 2px #50BDB8;
+}
+
+.betweenGreen-borderThick {
+  border: solid 2px #50BDB8;
+}
+
+.betweenGreen-hover:hover {
+  background-color: #50BDB8;
+}
+
+.betweenGreen-hoverBorder:hover {
+  border: solid 1px #50BDB8;
+}
+
+/* Between Green Deep */
+
+.betweenGreenDeep {
+  background-color: #47ABA7;
+}
+
+.betweenGreenDeep-text {
+  color: #47ABA7;
+}
+
+.betweenGreenDeep-border {
+  border: solid 1px #47ABA7;
+}
+
+.betweenGreenDeep-borderThick {
+  border: solid 2px #47ABA7;
+}
+
+.betweenGreenDeep-hover:hover {
+  background-color: #47ABA7;
+}
+
+.betweenGreenDeep-hoverBorder:hover {
+  border: solid 1px #47ABA7;
+}
+
+/* Between Green Dark */
+
+.betweenGreenDark {
+  background-color: #338885;
+}
+
+.betweenGreenDark-text {
+  color: #338885;
+}
+
+.betweenGreenDark-border {
+  border: solid 1px #338885;
+}
+
+.betweenGreenDark-borderThick {
+  border: solid 2px #338885;
+}
+
+.betweenGreenDark-hover:hover {
+  background-color: #338885;
+}
+
+.betweenGreenDark-hoverBorder:hover {
+  border: solid 1px #338885;
+}
+
+
+/* Between Green Darker */
+
+.betweenGreenDarker {
+  background-color: #1F6764;
+}
+
+.betweenGreenDarker-text {
+  color: #1F6764;
+}
+
+.betweenGreenDarker-border {
+  border: solid 1px #1F6764;
+}
+
+.betweenGreenDarker-borderThick {
+  border: solid 2px #1F6764;
+}
+
+.betweenGreenDarker-hover:hover {
+  background-color: #1F6764;
+}
+
+.betweenGreenDarker-hoverBorder:hover {
+  border: solid 1px #1F6764;
+}
+
+/* Maybe Red */
+
+.maybeRed {
+  background-color: #E83828;
+}
+
+.maybeRed-text {
+  color: #E83828;
+}
+
+.maybeRed-border {
+  border: solid 1px #E83828;
+}
+
+.maybeRed-borderThick {
+  border: solid 2px #E83828;
+}
+
+.maybeRed-hover:hover {
+  background-color: #E83828;
+}
+
+.maybeRed-hoverBorder:hover {
+  border: solid 1px #E83828;
+}
+
+/* Between Green Darker */
+
+.grrrrrey {
+  background-color: #B5B5B6;
+}
+
+.grrrrrey-text {
+  color: #B5B5B6;
+}
+
+.grrrrrey-border {
+  border: solid 1px #B5B5B6;
+}
+
+.grrrrrey-borderThick {
+  border: solid 2px #B5B5B6;
+}
+
+.grrrrrey-hover:hover {
+  background-color: #B5B5B6;
+}
+
+.grrrrrey-hoverBorder:hover {
+  border: solid 1px #B5B5B6;
+}
+
+/* White */
+
+.white-border {
+  border: solid 1px #FFFFFF;
+}
+
+.white-borderThick {
+  border: solid 2px #FFFFFF;
+}
+
+/* Google Maps */
+
+#mapholder {
+  height: 100%;
+  width: 99%;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+}
+
+@media (min-width: 992px) {
+  #mapholder {
+    width: 75%;
+    margin-left: -0.5%;
+  }
+}
+
+/* Buttons */
+
+.btnRow {
+  margin-right: 1.5%;
+}
+
+@media (min-width: 992px) {
+  .btnRow {
+    margin-right: 5%;
+  }
+}
+
+.joinBtn {
+  
+}
+
+.joinBtn:hover {
+
+}
+
+.messageBtn {
+
+}
+
+.messageBtn:hover {
+
+}
+
+.shareBtn {
+
+}
+
+.shareBtn:hover {
+
+}
+
+/* Input Boxes */
+
+.input-field textarea {
+  border: 2px solid #47ABA7;
+  border-radius: 10px;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: -5px 0px;
+}
+
+.input-field textarea:focus {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.valid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.invalid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+/* Header */
+
+.eventHeader {
+  padding-top: 30px;
+  padding-left: 25px;
+  padding-bottom: 0px;
+}
+
+.eventHeader h1 {
+  font-size: 26px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.eventHeader h3 {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+.eventHeader p {
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: -20px;
+}
+
+/* Event Description and Details */
+
+.eventDescription {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.eventDescription a {
+  color: #FFA00B;
+}
+
+.eventDescription a:hover {
+  text-decoration: underline;
+}
+
+.eventDetails {
+  margin-top: -20px;
+}
+
+.eventDetails p {
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+/* Event Reviews, Ratings, and Replies */
+
+.eventReviews h1 {
+  font-size: 25px;
+  margin-left: 6%;
+  margin-bottom: 20px;
+}
+
+.eventRatings p {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.eventReplies h1 {
+  font-size: 25px;
+  margin-left: 6%;
+  margin-top: 0px;
+}
+
+/* Event Icons */
+
+.eventIcons.material-icons{
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.eventDetails.material-icons{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Misc */
+
+.collapsible-event li {
+  overflow: auto;
+}
+
+.sectionDivider {
+  width: 95%;
+}
