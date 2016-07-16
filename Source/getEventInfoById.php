@@ -11,7 +11,7 @@ $query = "SELECT * FROM tbl_event where event_id = ".$event_id;
 $result = $conn->query($query) or die($mysqli->error.__LINE__);
 
 $row = $result->fetch_assoc();
-$small=array('startDate'=>$row["event_start_date"],'endDate'=>$row["event_end_date"],'category'=>$row["event_category"],'major'=>$row["event_major"],'maxAttendance'=>$row["event_max_att"],'currentAttendance'=>$row["event_current_att"],'image'=>$row["event_file"],'description'=>$row["event_descrition"],'details'=>$row["event_details"]);
+$small=array('startDate'=>$row["event_start_date"],'endDate'=>$row["event_end_date"],'category'=>$row["event_category"],'major'=>$row["event_major"],'maxAttendance'=>$row["event_max_att"],'currentAttendance'=>$row["event_current_att"],'image'=>$row["event_file"],'description'=>$row["event_descrition"],'details'=>$row["event_details"],'hompage'=>$row["event_homepage"]);
 
 echo json_encode($small);
 

@@ -61,6 +61,7 @@ $event_description = $_POST["description"];
 $event_details = $_POST["details"];
 $event_location = $_POST["location"];
 $event_max_attendance = $_POST["maxAttendance"];
+$event_homepage = $_POST["homepage"]
 
 
 
@@ -80,8 +81,9 @@ $event_location = mysqli_real_escape_string($conn,$event_location);
 $event_description = mysqli_real_escape_string($conn,$event_description);
 $event_details = mysqli_real_escape_string($conn, $event_details);
 $event_max_attendance = mysqli_real_escape_string($conn, $event_max_attendance);
+$event_homepage = mysqli_real_escape_string($conn, $event_homepage);
 
-$query =  "INSERT INTO tbl_event (event_title, event_start_date, event_end_date, event_major, event_category, event_file, event_writer, event_location, event_description, event_details, event_max_att) VALUES ('".$event_title."','".$event_start_date."','".$event_end_date."','".$event_major."','".$event_category."','".$event_file."','".$event_writer."','".$event_location."','".$event_description."','".$event_details."','".$event_max_attendance."')";
+$query =  "INSERT INTO tbl_event (event_title, event_start_date, event_end_date, event_major, event_category, event_file, event_writer, event_location, event_description, event_details, event_max_att, event_hompage) VALUES ('".$event_title."','".$event_start_date."','".$event_end_date."','".$event_major."','".$event_category."','".$event_file."','".$event_writer."','".$event_location."','".$event_description."','".$event_details."','".$event_max_attendance."','".$event_homepage."')";
 
 $result = $conn->query($query) or die($mysqli->error.__LINE__);
 
