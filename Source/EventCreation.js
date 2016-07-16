@@ -49,10 +49,8 @@ function submitForm() {
   var eventDescription = $( "#event_brief" ).val();
   var eventDetails = $( "#event_detailed" ).val();
   var eventImage = $( "#event_image_url" ).val();
-  var eventCategory1 = $( "#category1" ).val();
-  var eventCategory2 = $( "#category2" ).val();
-  var eventCategory3 = $( "#category3" ).val();
-  var eventCategory4 = $( "#category4" ).val();
+  var eventMajor = $( '#event_major').val();
+  var eventCategory = $( "#event_category" ).val();
   var eventStartTime = $( "#event_time_start" ).val();
   var eventEndTime = $( "#event_time_end" ).val();
   var eventLocation = $( "#event_location" ).val();
@@ -68,7 +66,7 @@ function submitForm() {
     eventStartDate = $( "#event_start_date" ).val();
     eventEndDate = $( "#event_end_date" ).val();
   }
-  
+
   // Check to see if all the required variables are set
   
   if (eventTitle === "") { 
@@ -88,21 +86,37 @@ function submitForm() {
   }
   
   // Submit form data
-  var data = {
-    title: eventTitle,
-    description: eventDescription,
-    details: eventDetails,
-    image: eventImage,
-    category1: eventCategory1,
-    category2: eventCategory2,
-    category3: eventCategory3,
-    category4: eventCategory4,
-    startTime: eventStartTime,
-    endTime: eventEndTime,
-    location: eventLocation,
-    maxAttendance: eventMaxAttendance
-  };
-  return data;
+
+  // pulling the image file.
+  //var tempfile = document.getElementById('fileToUpload').files[0];
+  
+  var fd = new FormData();
+
+  //fd.append("fileToUpload", tempfile);
+  //fd.append("writer",u_id);
+  fd.append("title",eventTitle);
+  fd.append("category", eventCategory);
+  fd.append("major", eventMajor);
+  fd.append("startDate", eventStartDate);
+  fd.append("endDate", eventEndDate);
+  fd.append("details", eventDetails);
+  fd.append("description", eventDescription);
+
+  // Need to implement way to pull latitude and longitute
+  //fd.append( “location_lat”, $(“#location_lat”).val());
+  //fd.append( “location_lng”, $(“#location_lng”).val());
+
+  // Actual sending of the data is here
+  $.ajax({
+    contentType: false,
+    processData: false,
+    type: "POST",
+    url: "addEvent.php",
+    data: fd,
+    success: function(html){
+      alert("success save");
+    }
+  });
 }
 
 {

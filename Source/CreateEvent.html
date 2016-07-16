@@ -97,18 +97,32 @@
             </div>
             <div class="row">
               <div class="col s5 input-field offset-s1">
-                <input placeholder="first category" id="category1" type="text" class="validate category">
+                <!--input placeholder="first category" id="category1" type="text" class="validate category"-->
+                <li>
+                  <select id="event_major">
+                    <option value="" disabled selected>Major</option>
+                    <option value="Art">Art</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Economics">Economics</option>
+                    <option value="History">History</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                  </select>
+                </li>
               </div>
               <div class="col s5 input-field">
-                <input placeholder="second category" id="category2" type="text" class="validate category">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s5 input-field offset-s1">
-                <input placeholder="third category" id="category3" type="text" class="validate category">
-              </div>
-              <div class="col s5 input-field">
-                <input placeholder="fourth category" id="category4" type="text" class="validate category">
+                <!--input placeholder="second category" id="category2" type="text" class="validate category"-->
+                <li>
+                  <select id="event_category" multiple>
+                    <option value="" disabled selected>Category</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Game">Game</option>
+                    <option value="Party">Party</option>
+                    <option value="Study">Study</option>
+                    <option value="etc">etc</option>
+                  </select>
+                </li>
               </div>
             </div>
             <div class="row shrunk">
