@@ -32,6 +32,24 @@ function addImage() {
   $( "#imageText" ).toggleClass("hide", true);
 }
 
+/* This checks to see if add image button is pressed
+ * If so, it triggers the real file input button
+ */
+$(document).ready( function() {
+  $('#imageBtn').click(function(){
+    $("#realImageInput").click();
+  });
+});
+
+// replaces the cover image of what was inputed.
+function handleFileSelect(evt) {
+    alert("testing");
+    $( "#mainImage" ).attr("src", $( '#realImageInput').val());
+}
+
+// When realImageInput notices a change, this event is triggered
+document.getElementById('realImageInput').addEventListener('change', handleFileSelect, false);
+
 
 /* openMap()
  * Opens the map and sets the event location to the location found.
@@ -48,7 +66,7 @@ function submitForm() {
   var eventTitle = $( "#event_title" ).val();
   var eventDescription = $( "#event_brief" ).val();
   var eventDetails = $( "#event_detailed" ).val();
-  var eventImage = $( "#event_image_url" ).val();
+  //var eventImage = $( "#event_image_url" ).val();
   var eventMajor = $( '#event_major').val();
   var eventCategory = $( "#event_category" ).val();
   var eventStartTime = $( "#event_time_start" ).val();
@@ -88,11 +106,11 @@ function submitForm() {
   // Submit form data
 
   // pulling the image file.
-  //var tempfile = document.getElementById('fileToUpload').files[0];
+  var tempfile = document.getElementById('realImageInput').files[0];
   
   var fd = new FormData();
 
-  //fd.append("fileToUpload", tempfile);
+  fd.append("fileToUpload", tempfile);
   //fd.append("writer",u_id);
   fd.append("title",eventTitle);
   fd.append("category", eventCategory);
@@ -107,6 +125,8 @@ function submitForm() {
   //fd.append( “location_lng”, $(“#location_lng”).val());
 
   // Actual sending of the data is here
+  console.log("about to submit data");
+
   $.ajax({
     contentType: false,
     processData: false,
@@ -117,6 +137,7 @@ function submitForm() {
       alert("success save");
     }
   });
+  console.log("submitted data");
 }
 
 {

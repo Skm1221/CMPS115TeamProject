@@ -88,6 +88,7 @@
                   
                   <p id="event_image_url" class="hide"></p>
                 </a>
+                <input id="realImageInput" type="file" style="display:none;" name="files[]"/>
               </div>
             </div>
             <div class="row">
@@ -174,7 +175,7 @@
         
         <div class="row btnRow">
             <div class="col s12 l12 input-field right-align pull-s1">
-              <button id="confirmBtn" onClick="submitForm();" class="btn waves-effect waves-dark betweenGreenDeep betweenGreenDark-hover" type="submit" name="action">Confirm</button>
+              <div id="confirmBtn" onClick="submitForm();" class="btn waves-effect waves-dark betweenGreenDeep betweenGreenDark-hover" type="submit" name="action">Confirm</div>
               <a id="cancelBtn" class="btn-flat waves-effect waves-dark maybeRed-text maybeRed-hoverBorder white white-border" href="main.html">Cancel</a>
             </div>
           </div>
