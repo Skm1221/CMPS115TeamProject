@@ -88,12 +88,16 @@ function submitForm() {
   // Check to see if all the required variables are set
   
   if (eventTitle === "") { 
+    alert("Event title missing!");
     return;
   } else if (eventLocation === "") {
+    alert("Event location missing!");
     return;
   } else if (eventStartTime === "") {
+    alert("Event start time missing!");
     return;
   } else if (eventEndTime === "") {
+    alert("Event end time missing!");
     return;
   } else if (eventStartDate === "") {
     alert("Start date missing!");
