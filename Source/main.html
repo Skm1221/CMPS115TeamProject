@@ -6,7 +6,8 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection"/>
-
+  <!--Import event expand view css-->
+  <link type="text/css" rel="stylesheet" href="materialize/css/expandview.css"/>
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -174,20 +175,42 @@
         </li>
 
         <li class="scrollspy" id="evt2">
+          
           <a href="#evt2" class="collapsible-header">
-            <h5><img class="circle" src="details/e1.png" width=40 height=40 />Book Donations</h5>
+            <div class="evtName">Event Name</div>
+            <div class="evtRating">3.5</div>
+            <div class="evtCreator">event creator name</div>
           </a>
+          
           <span class="collapsible-body">
-            <ul class="collection with-header">
-              <li class="collection-header"><h5>Details</h5></li>
-              <li class="collection-item"><div><i class="material-icons">schedule</i>  3:00 PM, Friday August 5th</div></li>
-              <li class="collection-item"><div><i class="material-icons">perm_identity</i> <b>Quota: </b>none</div></li>
-              <li class="collection-item"><div><i class="material-icons">room</i>  McHenry Library</div></li>
-              <li class="collection-item"><div><i class="material-icons">business</i> <a href="http://library.ucsc.edu/mchenry-library">library.ucsc.edu</a></div></li>
-            </ul>
-            
-            <!-- Modal Trigger for details button -->
-            <p><a class="modal-trigger waves-effect waves-light btn" href="#moreDetails1"><i class="material-icons">subject</i>  More Details</a></p>
+            <!-- Event buttons -->
+            <div class="evtBtns">
+              <a href="#!" class="evtBtnEnter">
+                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
+                Enter</a>
+              <a href="#!" class="evtBtnMessage">
+                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
+                Message</a>
+              <a href="#!" class="evtBtnShare">
+                <img src="../images/png/search.png" height="25px" width="20px" style="margin-top:7px;"/>
+                Share</a>
+            </div>
+
+            <p>Here are some details that I am just putting here. Here are some details that I am just putting here. Here are some details that I am just putting here. Here are...<a class="modal-trigger" id="evtDetailTrigger" href="#moreDetails1">more info</a></p>
+
+            <div class="evtSimpleInfo">
+              <img src="../images/png/clock.png" height="30px" width="30px" style="position:relative;margin-top:5px;margin-left:20px;margin-right:20px;top:8px;"/>
+              <h3 id="event_time">time</h3>
+            </div>
+            <div class="evtSimpleInfo">
+              <img src="../images/png/person.png" height="30px" width="30px" style="position:relative;margin-top:10px;margin-left:20px;margin-right:20px;top:8px;"/>
+              attendace</div>
+            <div class="evtSimpleInfo">
+              <img src="../images/png/location.png" height="30px" width="20px" style="position:relative;margin-top:10px;margin-left:25px;margin-right:25px;top:8px;"/>
+              location</div>
+            <div class="evtSimpleInfo">
+              <img src="../images/png/homepage.png" height="30px" width="30px" style="position:relative;margin-top:10px;margin-left:20px;margin-right:20px;top:8px;"/>
+              homepage</div>
 
             <!-- Modal Structure for details page -->
             <div id="moreDetails1" class="modal modal-fixed-footer">
@@ -200,10 +223,8 @@
               </div>
             </div>
 
-            <p><a class="waves-effect waves-light btn tooltipped" id="apply-btn" data-position="top" data-delay="50" data-tooltip="Apply and show that you applied"><i class="material-icons left">done</i>Apply</a>
-            <a class="waves-effect waves-light btn tooltipped" id="apply-btn-hidden" data-position="top" data-delay="50" data-tooltip="Apply and hide that you applied"><i class="material-icons left">visibility_off</i>Apply</a></p>
-
           </span>
+        
         </li>
         <li class="scrollspy" id="evt1">
           <a href="#evt1" class="collapsible-header">test</a>
