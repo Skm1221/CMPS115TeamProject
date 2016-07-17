@@ -6,7 +6,7 @@ $conn = mysqli_connect("localhost:3307", "root", "soso1221", "ucscplaza");
         echo "Failed to connect to MySQL:".mysqli_connect_error();
 }
 
-$query = "SELECT * FROM tbl_event where event_id = ".$event_id;
+$query = "SELECT * FROM tbl_event where event_key = ".$event_id;
 
 $result = $conn->query($query) or die($mysqli->error.__LINE__);
 

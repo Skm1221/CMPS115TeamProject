@@ -67,7 +67,7 @@ $result = $conn->query($query) or die($mysqli->error.__LINE__);
 $returnValue = array();
 if($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
-		$one_event=array('event_id'=>$row["event_id"],'title'=>$row["event_title"],'location'=>$row["event_location"], 'rating'=>$row["event_rating"], 'writer'=>$row["event_writer"]);
+		$one_event=array('event_key'=>$row["event_key"],'title'=>$row["event_title"],'location'=>$row["event_location"], 'rating'=>$row["event_rating"], 'writer'=>$row["event_writer"]);
 		array_push($returnValue, $one_event);
 	}
 }
