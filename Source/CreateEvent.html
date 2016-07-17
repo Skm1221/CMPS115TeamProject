@@ -73,7 +73,17 @@
             </div>
             <div class="row">
               <div id="event_description" class="col s12 input-field">
-                <textarea placeholder="Additional information..." id="event_detailed" class="materialize-textarea"></textarea>
+                <div class="col s6">
+                  <textarea placeholder="Replace this area with google maps." id="event_detailed" class="materialize-textarea"></textarea>
+                </div>
+                <div class="col s6 ">
+                  <a id="posterBtn" class="btn-flat waves-effect waves-light betweenGreenDeep-text betweenGreenDeep-borderThick white" onClick="addPoster();">
+                    <img id="mainPoster" width = "500" height = "300" class="hide responsive-img" src="" />
+                    <h1 id="posterPlusText" class="betweenGreenDeep white-text">+</h1>
+                    <h5 id="posterText">Insert Poster</h5>
+                  </a>
+                  <input id="realPosterInput" type="file" style="display:none;" accept="image/*"/>
+                </div>
               </div>
             </div>
           </div>
@@ -82,13 +92,12 @@
             <div class="row">
               <div class="col s10 input-field offset-s1">
                 <a id="imageBtn" class="btn-flat waves-effect waves-light betweenGreenDeep-text betweenGreenDeep-borderThick white" onClick="addImage();">
-                  <img id="mainImage" class="hide responsive-img" src="https://i.ytimg.com/vi/3V3gkStkZ0k/maxresdefault.jpg" />
+                  <img id="mainImage" width = "500" height = "300" class="hide responsive-img" src="" />
                   <h1 id="imagePlusText" class="betweenGreenDeep white-text">+</h1>
                   <h5 id="imageText">Insert main picture</h5>
-                  
                   <p id="event_image_url" class="hide"></p>
                 </a>
-                <input id="realImageInput" type="file" style="display:none;" name="files[]"/>
+                <input id="realImageInput" type="file" style="display:none;" accept="image/*"/>
               </div>
             </div>
             <div class="row">
@@ -168,6 +177,12 @@
               <div class="col s12 input-field">
                 <i class="prefix material-icons">perm_identity</i>
                 <input placeholder="Max attendance" id="event_attendance" type="text" class="validate">
+              </div>
+            </div>
+            <div class="row shrunk">
+              <div class="col s12 input-field">
+                <i class="prefix material-icons">home</i>
+                <input placeholder="Homepage" id="event_homepage" type="text" class="validate">
               </div>
             </div>
           </div>
