@@ -164,108 +164,12 @@
     </div>
     <!-- Events -->
     <aside class="col s12 l4 pull-l8">
-      <ul class="collapsible collapsible-event">
+      <ul id="eventList" class="collapsible collapsible-event">
         <li>
-          <a onClick="toggleHeader('evt1');" id="evt1Header" class="collapsible-header betweenGreenDeep-text eventHeader">
-            <h1> Title </h1>
-            <div id="evt1Rating" class="eventRating hide">
-              <h3 id="evt1RatingNum">3.5</h3>
-              <div id="evt1RatingStars" class="starContainer">
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/halfgwstar.png" />
-                <img src="../images/png/emptystar.png" />
-              </div>
-            </div>
-            <h5 id="evt1Owner" class="eventOwner hide"> event creator name </h5>
+          <a onClick="addEvent();" class="collapsible-header betweenGreenDeep-text eventHeader">
+            <h1> Create Event </h1>
           </a>
-          <div class="collapsible-body" class="hide">
-            <div class="row">
-              <a onClick="joinEvent('evt1');" class="topBtn joinBtn col s4">
-                <i class="betweenGreenDeep-text material-icons eventIcons medium">open_in_browser</i>
-                <h5 class="betweenGreenDeep-text center-align"> Enter </h5>
-              </a>
-              <a onClick="messageOwner('evt1');" class="topBtn messageBtn col s4">
-                <i class="betweenGreenDeep-text material-icons eventIcons medium">email</i>
-                <h5 class="betweenGreenDeep-text center-align"> Message </h5>
-              </a>
-              <a onClick="shareEvent('evt1');" class="topBtn shareBtn col s4">
-                <i class="betweenGreenDeep-text material-icons eventIcons medium">share</i>
-                <h5 class="betweenGreenDeep-text center-align"> Share </h5>
-              </a>
-            </div>
-            <hr class="sectionDivider" />
-            <div class="row">
-              <div class="col s12">
-                <p class="eventDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...<a onClick="moreInfo('evt1');">more info</a></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="eventDetails col s11 offset-s1">
-                <i class="betweenGreenDeep-text material-icons">schedule</i>
-                <p id="evt1time">time</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="eventDetails col s11 offset-s1">
-                <i class="betweenGreenDeep-text material-icons">perm_identity</i>
-                <p id="evt1time">attendance</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="eventDetails col s11 offset-s1">
-                <i class="betweenGreenDeep-text material-icons">location_on</i>
-                <p id="evt1time">location</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="eventDetails col s11 offset-s1">
-                <i class="betweenGreenDeep-text material-icons">home</i>
-                <p id="evt1time">homepage</p>
-              </div>
-            </div>
-          </div>
         </li>
-        <li>
-          <a onClick="toggleHeader('evt2');" id="evt2Header" class="collapsible-header betweenGreenDeep-text eventHeader">
-            <h1> Title </h1>
-            <div id="evt2Rating" class="eventRating hide">
-              <h3 id="evt2RatingNum">3.5</h3>
-              <div id="evt2RatingStars" class="starContainer">
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/halfgwstar.png" />
-                <img src="../images/png/emptystar.png" />
-              </div>
-            </div>
-            <h5 id="evt2Owner" class="eventOwner hide"> event creator name </h5>
-          </a>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
-        <li>
-          <a onClick="toggleHeader('evt3');" id="evt3Header" class="collapsible-header betweenGreenDeep-text eventHeader">
-            <h1> Title </h1>
-            <div id="evt3Rating" class="eventRating hide">
-              <h3 id="evt3RatingNum">3.5</h3>
-              <div id="evt3RatingStars" class="starContainer">
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/whitestar.png" />
-                <img src="../images/png/halfgwstar.png" />
-                <img src="../images/png/emptystar.png" />
-              </div>
-            </div>
-            <h5 id="evt3Owner" class="eventOwner hide"> event creator name </h5>
-          </a>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
-        
       </ul>
     </aside>
   </main>
