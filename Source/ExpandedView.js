@@ -20,15 +20,12 @@ function toggleHeader(event) {
 }
 
 function joinEvent(event) {
-  
 }
 
 function messageOwner(event) {
-  
 }
 
 function shareEvent(event) {
-  
 }
 
 function moreInfo(event) {

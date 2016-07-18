@@ -157,11 +157,13 @@
       </ul>
     </div>
   </nav>
-  <main class="row" style="height:87%;">
+  <main class="row">
     <!-- Map -->
-    <section class="col s12 l9 push-l3" id="mapholder"></section>
+    <div id="mapContainer" class="col s12 l8 push-l4">
+      <section id="mapholder" class="betweenGreenDeep-borderThick"></section>
+    </div>
     <!-- Events -->
-    <aside class="col s12 l3 pull-l9">
+    <aside class="col s12 l4 pull-l8">
       <ul class="collapsible collapsible-event">
         <li>
           <a onClick="toggleHeader('evt1');" id="evt1Header" class="collapsible-header betweenGreenDeep-text eventHeader">
@@ -180,23 +182,17 @@
           </a>
           <div class="collapsible-body" class="hide">
             <div class="row">
-              <a onClick="joinEvent('evt1');" class="joinBtn">
-                <div class="col s4">
-                  <i class="betweenGreenDeep-text material-icons eventIcons medium">open_in_browser</i>
-                  <h5 class="betweenGreenDeep-text center-align"> Enter </h5>
-                </div>
+              <a onClick="joinEvent('evt1');" class="topBtn joinBtn col s4">
+                <i class="betweenGreenDeep-text material-icons eventIcons medium">open_in_browser</i>
+                <h5 class="betweenGreenDeep-text center-align"> Enter </h5>
               </a>
-              <a onClick="messageOwner('evt1');" class="messageBtn">
-                <div class="col s4">
-                  <i class="betweenGreenDeep-text material-icons eventIcons medium">email</i>
-                  <h5 class="betweenGreenDeep-text center-align"> Message </h5>
-                </div>
+              <a onClick="messageOwner('evt1');" class="topBtn messageBtn col s4">
+                <i class="betweenGreenDeep-text material-icons eventIcons medium">email</i>
+                <h5 class="betweenGreenDeep-text center-align"> Message </h5>
               </a>
-              <a onClick="shareEvent('evt1');" class="shareBtn">
-                <div class="col s4">
-                  <i class="betweenGreenDeep-text material-icons eventIcons medium">share</i>
-                  <h5 class="betweenGreenDeep-text center-align"> Share </h5>
-                </div>
+              <a onClick="shareEvent('evt1');" class="topBtn shareBtn col s4">
+                <i class="betweenGreenDeep-text material-icons eventIcons medium">share</i>
+                <h5 class="betweenGreenDeep-text center-align"> Share </h5>
               </a>
             </div>
             <hr class="sectionDivider" />
@@ -206,34 +202,26 @@
               </div>
             </div>
             <div class="row">
-              <div class="eventDetails col s1 offset-s1">
-                <i class="betweenGreenDeep-text material-icons eventDetails medium">schedule</i>
-              </div>
-              <div class="eventDetails col s9">
+              <div class="eventDetails col s11 offset-s1">
+                <i class="betweenGreenDeep-text material-icons">schedule</i>
                 <p id="evt1time">time</p>
               </div>
             </div>
             <div class="row">
-              <div class="eventDetails col s1 offset-s1">
-                <i class="betweenGreenDeep-text material-icons eventDetails medium">perm_identity</i>
-              </div>
-              <div class="eventDetails col s9">
+              <div class="eventDetails col s11 offset-s1">
+                <i class="betweenGreenDeep-text material-icons">perm_identity</i>
                 <p id="evt1time">attendance</p>
               </div>
             </div>
             <div class="row">
-              <div class="eventDetails col s1 offset-s1">
-                <i class="betweenGreenDeep-text material-icons eventDetails medium">location_on</i>
-              </div>
-              <div class="eventDetails col s9">
+              <div class="eventDetails col s11 offset-s1">
+                <i class="betweenGreenDeep-text material-icons">location_on</i>
                 <p id="evt1time">location</p>
               </div>
             </div>
             <div class="row">
-              <div class="eventDetails col s1 offset-s1">
-                <i class="betweenGreenDeep-text material-icons eventDetails medium">home</i>
-              </div>
-              <div class="eventDetails col s9">
+              <div class="eventDetails col s11 offset-s1">
+                <i class="betweenGreenDeep-text material-icons">home</i>
                 <p id="evt1time">homepage</p>
               </div>
             </div>
