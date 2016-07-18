@@ -259,14 +259,26 @@
 
 .eventHeader h3 {
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: -20px;
 }
 
-.eventHeader p {
+.eventHeader h5 {
   font-size: 16px;
-  margin-top: 0px;
-  margin-bottom: -20px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.starContainer {
+  height: 20px;
+  margin-top: 2px;
+  margin-left: 30px;
+  line-height: 0px;
+}
+
+.starContainer img {
+  height: 16px;
+  width: 16px;
 }
 
 /* Event Description and Details */
@@ -314,14 +326,14 @@
 
 /* Event Icons */
 
-.eventIcons.material-icons{
+.eventIcons.material-icons {
   width: 100%;
   margin-top: 20px;
   text-align: center;
   text-decoration: none;
 }
 
-.eventDetails.material-icons{
+.eventDetails.material-icons {
   width: 100%;
   margin-top: 10px;
   text-align: center;
