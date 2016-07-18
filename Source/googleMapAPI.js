@@ -26,6 +26,14 @@ function initMap() {
     new google.maps.LatLng(37.005027, -122.052031)
   );
 
+  // Set marker by click
+  google.maps.event.addListener(map, 'click', function(event) {
+    removeAllMarker();
+    marker = setMarker(event.latLng, map);
+    $('#event_coordinate').val(event.latLng.lat() + ", " + event.latLng.lng());
+  });
+
+
   // Listen for the dragend event
   google.maps.event.addListener(map, 'dragend', function () {
     if (strictBounds.contains(map.getCenter())) return;
@@ -57,13 +65,12 @@ function initMap() {
 /*
  * Marker functions - setMarker, showAllMarker, hideAllMarker, removeAllMarker, removeFirstMarker
  */
-function setMarker(lat, lng, tooltip) {
-  var latlng = new google.maps.LatLng(lat, lng);
+function setMarker(latLng, tooltip) {
   var marker = new google.maps.Marker({
-    position: latlng,
+    position: latLng,
     map: map,
-    title: tooltip,
-    label: labels[labelIndex++ % labels.length]
+    //title: tooltip,
+    //label: labels[labelIndex++ % labels.length]
   });
   markers.push(marker);
 }

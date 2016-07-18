@@ -13,6 +13,16 @@
   <meta charset="UTF-8">
   <script src="googleMapAPI.js"></script>
   <script defer src="http://maps.google.com/maps/api/js?key=AIzaSyB6Lz24NEsy8I_cDxm6vUVGXlqwNlkC2yk&language=en&callback=initMap"></script>
+
+   <link rel="stylesheet" type="text/css" href="datetimesrc/DateTimePicker.css" />
+    
+   <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="datetimesrc/DateTimePicker-ltie9.css" />
+    <script type="text/javascript" src="datetimesrc/DateTimePicker-ltie9.js"></script>
+   <![endif]-->
+   
+   <!-- For i18n Support -->
+   <script type="text/javascript" src="datetimesrc/i18n/DateTimePicker-i18n.js"></script>
 </head>
 
 <body style="height:800px">
@@ -68,22 +78,13 @@
             </div>
             <div class="row">
               <div id="event_brief_description" class="col s12 input-field">
-                <textarea placeholder="Brief description" id="event_brief" class="materialize-textarea"></textarea>
+                <section id="mapholder" style="height:250px; width:700px;"></section>
+                <input placeholder="Event Coordinates*" id="event_coordinate" type="text" class="validate" style="display:none;" required>
               </div>
             </div>
             <div class="row">
               <div id="event_description" class="col s12 input-field">
-                <div class="col s6">
-                  <textarea placeholder="Replace this area with google maps." id="event_detailed" class="materialize-textarea"></textarea>
-                </div>
-                <div class="col s6 ">
-                  <a id="posterBtn" class="btn-flat waves-effect waves-light betweenGreenDeep-text betweenGreenDeep-borderThick white" onClick="addPoster();">
-                    <img id="mainPoster" width = "500" height = "300" class="hide responsive-img" src="" />
-                    <h1 id="posterPlusText" class="betweenGreenDeep white-text">+</h1>
-                    <h5 id="posterText">Insert Poster</h5>
-                  </a>
-                  <input id="realPosterInput" type="file" style="display:none;" accept="image/*"/>
-                </div>
+                <textarea placeholder="Detailed Description" id="event_detailed" class="materialize-textarea"></textarea>
               </div>
             </div>
           </div>
@@ -135,7 +136,7 @@
                 </li>
               </div>
             </div>
-            <div class="row shrunk">
+            <!--div class="row shrunk">
               <div id="single_day_event">
                 <div class="input-field col s10">
                   <i class="prefix material-icons">today</i>
@@ -156,21 +157,23 @@
                 <input type="checkbox" class="filled-in" id="event_length" onclick="eventLengthToggle();" />
                 <label for="event_length">Multi-Day</label>
               </div>
-            </div>
+            </div-->
             <div class="row shrunk">
               <div class="col s6 input-field">
                 <i class="prefix material-icons">query_builder</i>
-                <input placeholder="Starting time*" id="event_time_start" type="text" class="validate" required>
+                <input placeholder="Starting time*" id="event_time_start" data-field="datetime" type="text" class="validate" required>
               </div>
               <div class="col s6 input-field">
                 <i class="prefix material-icons">trending_flat</i>
-                <input placeholder="Ending time*" id="event_time_end" type="text" class="validate" required>
+                <input placeholder="Ending time*" id="event_time_end" data-field="datetime" type="text" class="validate" required>
+                <div id="dtBox"></div>
               </div>
             </div>
             <div class="row shrunk">
               <div class="col s12 input-field">
                 <i class="prefix material-icons">location_on</i>
                 <input placeholder="Event location*" onClick="openMap();" id="event_location" type="text" class="validate" required>
+                <div id="dtBox"></div>
               </div>
             </div>
             <div class="row shrunk">
@@ -200,6 +203,8 @@
   </main>
   
   <script src="EventCreation.js"></script>
+
+   <script type="text/javascript" src="datetimesrc/DateTimePicker.js"></script>
 </body>
 
 </html>

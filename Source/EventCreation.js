@@ -33,14 +33,6 @@ function addImage() {
   $( "#imageText" ).toggleClass("hide", true);
 }
 
-/* addPoster()
- * Adds the input poster.
- */
-function addPoster() {
-  $( "#mainPoster" ).toggleClass("hide", false);
-  $( "#posterPlusText" ).toggleClass("hide", true);
-  $( "#posterText" ).toggleClass("hide", true);
-}
 
 /* This checks to see if add image button is pressed
  * If so, it triggers the real file input button
@@ -49,10 +41,10 @@ $(document).ready( function() {
   $('#imageBtn').click(function(){
     $("#realImageInput").click();
   });
-  $('#posterBtn').click(function(){
-    $("#realPosterInput").click();
-  });
+  $("#dtBox").DateTimePicker();
 });
+
+
 
 // replaces the cover image of what was inputed.
 function handleFileSelectImage(evt) {
@@ -64,19 +56,9 @@ function handleFileSelectImage(evt) {
     reader.readAsDataURL(evt.target.files[0]);
 }
 
-// replaces the poster of what was inputed
-function handleFileSelectPoster(evt) {
-    //alert($( '#realPosterInput').val());
-    var reader = new FileReader();
-    reader.addEventListener("load", function (evt) {
-    $( "#mainPoster" ).attr("src", event.target.result);  
-    })
-    reader.readAsDataURL(evt.target.files[0]);
-}
 
 // When realImageInput notices a change, this event is triggered
 document.getElementById('realImageInput').addEventListener('change', handleFileSelectImage, false);
-document.getElementById('realPosterInput').addEventListener('change', handleFileSelectPoster, false);
 
 /* openMap()
  * Opens the map and sets the event location to the location found.
@@ -91,27 +73,40 @@ function openMap() {
 function submitForm() {
   // Grab all of the form data
   var eventTitle = $( "#event_title" ).val();
-  var eventDescription = $( "#event_brief" ).val();
+  //var eventDescription = $( "#event_brief" ).val();
   var eventDetails = $( "#event_detailed" ).val();
   var eventMajor = $( '#event_major').val();
   var eventCategory = $( "#event_category" ).val();
   var eventStartTime = $( "#event_time_start" ).val();
   var eventEndTime = $( "#event_time_end" ).val();
   var eventLocation = $( "#event_location" ).val();
+  var eventCoordinate = $('#event_coordinate').val();
   var eventMaxAttendance = $( "#event_attendance" ).val();
   var eventHomepage = $("#event_homepage").val();
-  var eventStartDate = "";
-  var eventEndDate = "";
-  var singleDay = $( "#single_day_event" ).hasClass("actively_displayed");
-  if ( singleDay ) {
-    eventStartDate = $( "#event_date" ).val();
-    eventEndDate = eventStartDate;
-  } else {
-    eventStartDate = $( "#event_start_date" ).val();
-    eventEndDate = $( "#event_end_date" ).val();
-  }
-  console.log(eventStartTime);
-  console.log(eventEndTime);
+  //
+  //  Not needed because of new clock.
+  //
+  //var eventStartDate = "";
+  //var eventEndDate = "";
+  //var singleDay = $( "#single_day_event" ).hasClass("actively_displayed");
+  //if ( singleDay ) {
+  //  eventStartDate = $( "#event_date" ).val();
+  //  eventEndDate = eventStartDate;
+  //} else {
+  //  eventStartDate = $( "#event_start_date" ).val();
+  //  eventEndDate = $( "#event_end_date" ).val();
+  //}
+  console.log("DATA TO SUBMIT: ");
+  console.log("Title: "+eventTitle);
+  console.log("Details: "+eventDetails);
+  console.log("Major: "+eventMajor);
+  console.log("Category: "+eventCategory);
+  console.log("Start Time: "+eventStartTime);
+  console.log("End Time: "+eventEndTime);
+  console.log("Location: "+eventLocation);
+  console.log("Coordinates: "+eventCoordinate);
+  console.log("Max Attendance: "+eventMaxAttendance);
+  console.log("Homepage: "+eventHomepage); 
 
   // Check to see if all the required variables are set
   
@@ -139,26 +134,22 @@ function submitForm() {
 
   // pulling the image file.
   var imageFile = document.getElementById('realImageInput').files[0];
-  var posterFile = document.getElementById('realPosterInput').files[0];
   
   var fd = new FormData();
 
-  fd.append("imageToUpload", imageFile);
-  fd.append("posterToUpload", posterFile);
-  //fd.append("writer",u_id);
   fd.append("title",eventTitle);
-  fd.append("category", eventCategory);
-  fd.append("major", eventMajor);
-  fd.append("startDate", eventStartDate);
-  fd.append("endDate", eventEndDate);
-  fd.append("homepage",eventHomepage);
+  //fd.append("description", eventDescription);
   fd.append("details", eventDetails);
-  fd.append("description", eventDescription);
-
-  // Need to implement way to pull latitude and longitute
-  //fd.append( “location_lat”, $(“#location_lat”).val());
-  //fd.append( “location_lng”, $(“#location_lng”).val());
+  fd.append("major", eventMajor);
+  fd.append("category", eventCategory);
+  fd.append("startTime", eventStartTime);
+  fd.append("endTime", eventEndTime);
   fd.append("location",eventLocation);
+  fd.append("Coordinates",eventCoordinate);
+  fd.append("MaxAttendance",eventMaxAttendance);
+  fd.append("homepage",eventHomepage);
+  fd.append("imageToUpload", imageFile);
+
   // Actual sending of the data is here
   console.log("about to submit data");
 
