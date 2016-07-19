@@ -41,7 +41,9 @@ $(document).ready( function() {
   $('#imageBtn').click(function(){
     $("#realImageInput").click();
   });
-  $("#dtBox").DateTimePicker();
+  $("#dtBox").DateTimePicker({
+    dateTimeFormat: "yyyy-MM-dd HH:mm"
+  });
 });
 
 
@@ -83,6 +85,9 @@ function submitForm() {
   var eventCoordinate = $('#event_coordinate').val();
   var eventMaxAttendance = $( "#event_attendance" ).val();
   var eventHomepage = $("#event_homepage").val();
+
+  eventStartTime = eventStartTime.replace(" ","-").replace(":","-");
+  eventEndTime = eventEndTime.replace(" ","-").replace(":","-");
   //
   //  Not needed because of new clock.
   //
