@@ -144,16 +144,16 @@ function submitForm() {
 
   fd.append("title",eventTitle);
   //fd.append("description", eventDescription);
-  fd.append("details", eventDetails);
+  fd.append("description", eventDetails);
   fd.append("major", eventMajor);
   fd.append("category", eventCategory);
   fd.append("startTime", eventStartTime);
   fd.append("endTime", eventEndTime);
   fd.append("location",eventLocation);
   fd.append("Coordinates",eventCoordinate);
-  fd.append("MaxAttendance",eventMaxAttendance);
+  fd.append("maxAttendance",eventMaxAttendance);
   fd.append("homepage",eventHomepage);
-  fd.append("imageToUpload", imageFile);
+  fd.append("image", imageFile);
 
   // Actual sending of the data is here
   console.log("about to submit data");
