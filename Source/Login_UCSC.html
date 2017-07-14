@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login_html</title>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans:300,400,600" rel="stylesheet">
+        <style>
+            .Form {
+                padding: 20px 30px 80px;
+            }
+            input {
+                width: 90%;
+                padding: 6px 20px;
+                font-size: 18px;
+                border: 1px solid black;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 400;
+            }
+            input:focus {
+                outline: none;
+                border: 2px solid black;
+            }
+            .SignInButton {
+                outline: none;
+                width: 100%;
+                font-size: 20px;
+                background: #8be0d2;
+                border-color: #448784;
+                border-width: thin;
+                color: white;
+                border-radius: 5px; 
+                box-shadow: 2px 2px 5px #888888;
+                padding: 5px 0px;
+            }
+            .SignInButton:hover {
+                cursor: pointer;
+                outline: none;
+                background: #5eb8b2;
+                border-color: #2f6562;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div align = "center" style="padding: 30px 0px 40px;">
+                <a href="./Login_UCSC.html"><img src ="../images/png/logo.png" height="90px;" width="180px;"/></a>
+            </div>
+        </header>
+        <section>
+            <form style = "width: 500px; margin: auto; border-corlor: black; box-shadow: 2px 2px 5px #888888; background: #d8d8d8;">
+
+                <div class="Form">
+                    <h2 align="center" style="margin: 0px 0px 40px; font-size: 35px; font-family: 'Muli', sans-serif; font-weight: 400">Login</h2>
+                    <div align="center">
+                        <input class="input-line" style="margin-bottom: 30px;" type="text" id="ID" placeholder="Username"/>
+                    </div>
+                    <div align="center">
+                        <input class="input-line" type="password" id="PW" placeholder="Password"/>
+                    </div>
+                    <div id = "error_message" align = "center" style="color : red; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight:300; padding-top: 10px;"></div>
+
+                    <div align="center" style = "display:block; padding-top: 25px; padding-bottom: 10px;">
+                        <button class="SignInButton" style = "font-family: 'Open Sans', sans-serif; font-weight:600;"type="button" onclick="SendLogin()">Login</button>
+                    </div>
+                    <div class = "SignUpPage" style="margin-left: 0px;">
+                        <a href = "./SignUp.html" style = "text-decoration:none; color:black;"><div style = "font-size: 18px; font-family: 'Muli', sans-serif; font-weight : 400;">Not a Member? Sign up</div></a>
+                    </div>
+                </div>
+            </form>
+        </section>
+        
+    </body>
+    <script src="http://www.w3schools.com/lib/w3color.js"></script>
+    <script>w3SetColorsByAttribute();</script>
+    
+    <script>
+        var user_id, user_pw;
+        function SendLogin() {
+            if ( $('#ID').val() === '') {
+                $('div#error_message').html("Please enter your username");
+            } else if ( $('#PW').val() === '' ) {
+                $('div#error_message').html("Please enter your password");
+            } else {
+                user_id = $("#ID").val();
+                user_pw = $("#PW").val();
+                $.ajax({
+                    type: "POST",
+                    url: "./login.php",
+                    data: {
+                        "id" : user_id,
+                        "pw" : user_pw
+                    },
+                    success: function(html){
+                        if(html == 'true') {
+                            window.location = "./main.html?"+user_id+"&";
+                        } else {
+                            alert(html);
+                            $('div#error_message').html("Sorry, your username or password isn’t right.");
+                        }
+                    },beforeSend: function(){
+                        $('div#error_message').html("Please wait a few seconds...");
+                    }
+                })
+            }
+        }
+    </script>
+</html>

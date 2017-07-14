@@ -1,0 +1,16 @@
+// In Main Page
+
+// When expanding an event, event details are displayed
+unit test: Visually ensure that the data is all correct and belonging to that event.
+	Click the event title to expand it.
+	Assert that it expands out, displaying more information.
+	Assert that information belongs to specific event.
+
+
+// When the more info anchor is clicked, a modal window displays with event details
+unit test: Visually ensure that the data is all correct and belonging to that event, and that a modal opens.
+	Click an event title to expand it.
+	Scroll down to the "more info..." or "See more info" anchor and click it.
+	Assert a modal window opens.
+	Assert that the modal window displays information.
+	Assert that the information displays belongs to the same event that you came from.

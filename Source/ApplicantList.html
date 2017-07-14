@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection"/>
+    
+    <link rel="stylesheet" href="ApplicantList.css">
+    
+    <!--Let browser know website is optimized for mobile-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <!--Import Bootpag.js-->
+    <script type="text/javascript" src="jquery-bootpag/lib/jquery.bootpag.js"></script>
+    
+    <!--Import materialize.min.js-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    
+    <script type="text/javascript" src="ApplicantList.js"></script>
+</head>
+
+<body>
+    <!-- Modal Trigger -->
+    <button class="btn" onclick="openApplicantList(68);">Modal</button>
+
+    <!-- Modal Structure -->
+    <div id="applicantList" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s8" style="margin-bottom:10px;">
+                    <ul class="tabs">
+                        <li class="tab col s1">
+                            <a name="waiting" href="#waitingList" onclick="ShowList('waiting');"><img src="../images/png/waiting.png" height="19px" width="19px" /> Waiting</a>
+                        </li>
+                        <li class="tab col s1">
+                            <a name="accepted" href="#acceptedList" onclick="ShowList('accepted');"><img src="../images/png/accepted.png" height="19px" width="19px" /> Accepted</a>
+                        </li>
+                        <li class="tab col s1">
+                            <a name="rejected" href="#rejectedList" onclick="ShowList('rejected');"><img src="../images/png/rejected.png" height="19px" width="19px" /> Rejected</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="waitingList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="waitingTbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="acceptedList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="acceptedTbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="rejectedList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="rejectedTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

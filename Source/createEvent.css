@@ -1,0 +1,200 @@
+/* Google Maps */
+
+#mapContainer {
+  height: 100%;
+  padding-right: 0px;
+}
+
+#mapholder {
+  border-radius: 20px;
+  height: 250px;
+  width: 100%;
+}
+
+/* Buttons */
+
+.btnRow {
+  margin-right: 1.5%;
+}
+
+@media (min-width: 992px) {
+  .btnRow {
+    margin-right: 5%;
+  }
+}
+
+#imageBtn {
+  width: 102.1%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  height: 300px;
+  padding: 0px;
+}
+
+#imageBtn h1 {
+  margin: auto;
+  position: relative;
+  width: 110px;
+  height: 110px;
+  font-size: 100px;
+  top: 20%;
+  border-radius: 65px;
+}
+
+#imageBtn h5 {
+  position: relative;
+  top: 35%;
+}
+
+/* Icons */
+
+.material-icons.prefix{
+  font-size: 32px;
+  color: #47ABA7;
+  position: absolute;
+  top: 20%;
+}
+
+.material-icons.prefix.active {
+  font-size: 32px;
+  color: #47ABA7;
+  position: absolute;
+  top: 20%;
+}
+
+/* Input Boxes */
+
+.input-field input[type=text]{
+  border-bottom: 1px solid #47ABA7;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #47ABA7;
+  box-shadow: 0 1px 0 0 #47ABA7;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #47ABA7;
+  box-shadow: 0 1px 0 0 #47ABA7;
+}
+
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #47ABA7;
+  box-shadow: 0 1px 0 0 #47ABA7;
+}
+
+.input-field input[type=text].category {
+  border: 1px solid #47ABA7;
+  border-radius: 10px;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: -25px 0px;
+}
+
+.input-field input[type=text].category:focus {
+  border: 1px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field input[type=text].category.valid {
+  border: 1px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field input[type=text].category.invalid {
+  border: 1px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+#event_title_container.input-field input[type=text]{
+  border: 2px solid #47ABA7;
+  border-radius: 10px;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: 0px 0px -10px;
+}
+
+#event_title_container.input-field input[type=text]:focus {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+#event_title_container.input-field input[type=text].valid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+#event_title_container.input-field input[type=text].invalid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+#event_description.input-field textarea {
+  min-height: 450px;
+}
+
+.input-field textarea {
+  border: 2px solid #47ABA7;
+  border-radius: 10px;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: -5px 0px;
+}
+
+.input-field textarea:focus {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.valid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.invalid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.dtpicker-comp input[type=text] {
+  border-bottom: 0px;
+}
+
+/* Misc */
+
+.row.shrunk {
+  margin: -5px 0px;
+  padding: -10px 0px;
+}
+
+.categoryTitle {
+  margin-left: -10px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.eventContainer {
+  margin: auto;
+  width: 90%;
+}
+
+.time-division h5 {
+  margin-top: 30px;
+}
+
+#mainImage {
+  margin: auto;
+  max-width: 1000%;
+  max-height: 1000%;
+}
+
+.wideImage {
+  height: 100%;
+  width: auto;
+}
+
+.tallImage {
+  width: 100%;
+  height: auto;
+}

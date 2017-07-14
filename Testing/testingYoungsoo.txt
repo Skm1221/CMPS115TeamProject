@@ -1,0 +1,56 @@
+// In MyPage
+
+//When user enter MyPage
+
+unit test: Show right user information in right gray box
+	Enter MyPage.
+	Assert that user information in gray box is right.
+
+//When user enter MyPage
+
+unit test: Show hosted events that user uploaded in the past
+	Enter MyPage.
+	Assert that all events which user uploaded in the past display to user.
+	Assert that pagination works well.
+	Assert that each event has right, up-to-date information.
+
+//When user click a tap named “Applied Events”
+
+unit test: Show applied events that user applied in the past
+	Enter MyPage.
+	Click a tap named “Applied Events”
+	Assert that all events which user applied in the past display to user.
+	Assert that pagination works well.
+	Assert that each event has right, up-to-date information.
+
+//When user see hosted events but user uploaded no events in the past
+
+unit test: Display nothing below tabs even paginations
+	Enter MyPage.
+	Assert that pagination is not displayed.
+	Assert that any events is not displayed.
+
+//When user see applied events but user didn’t apply any events in the past
+
+unit test: Display nothing below tabs even paginations
+	Enter MyPage.
+	Click a tap named “Applied Events”
+	Assert that pagination is not displayed.
+	Assert that any events is not displayed.
+
+//When user click a event of hosted events
+
+unit test: Display the applicant list popup
+	Enter MyPage.
+	Click a event of hosted events.
+	Assert that the applicant list display to user.
+	Assert that the applicant list is up-to-date.
+
+//When user click a event of applied events
+
+unit test: Display the detail view about a event that user clicked
+	Enter MyPage.
+	Click a tap named “Applied Events”
+	Click a event of applied events.
+	Assert that the detail view display to user.
+	Assert that the information of detail view is up-to-date.

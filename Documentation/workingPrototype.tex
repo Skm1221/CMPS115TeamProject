@@ -1,0 +1,91 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%
+% Miscellaneous
+%%%%%%%%%%%%%%%%
+
+\definecolor{primary}{rgb}{0,0,.50}
+%\definecolor{primary}{rgb}{0,0,0}
+\definecolor{secondary}{rgb}{.7,.5,0}
+\definecolor{table-primary}{rgb}{1,1,1}
+\definecolor{table-secondary}{rgb}{.975,.99,1}
+
+%%%%%%%%%%%%%%%%
+% Title Section
+%%%%%%%%%%%%%%%%
+
+\title{\color{primary}\texttt{Working Prototype \\ UCSC Plaza}}
+\author{{\color{secondary}\textbf{Team Amlesh the Great}} \\ Kyungmin So (PO), Youngsoo Jang, \\ Hobin Ryu, Seungwoo Lee \\ Amlesh Sivanantham, and James Garbagnati }
+\date{July 25, 2016}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% User-Defined Macros
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\ignore = Multiline comments
+\newcommand{\ignore}[1]{}
+
+\newcommand{\gobblepagenum}{\thispagestyle{empty}\addtocounter{page}{-1}}
+
+%\fancysec{Section title}{Label} = Fancy, colored and labelled section
+% Basically just to make it easier to change the format of the whole doc
+% Commands with an X are non-numbered sections
+\newcommand{\fancysec}[2] {{\color{primary}\section{#1} \label{sec:#2}}}
+\newcommand{\fancysub}[2] {{\color{primary}\subsection{#1} \label{sec:#2}}}
+\newcommand{\fancysubsub}[2] {{\color{primary}\subsubsection{#1} \label{sec:#2}}}
+
+\newcommand{\fancysecX}[2] {{\color{primary}\section*{#1} \label{sec:#2}}}
+\newcommand{\fancysubX}[2] {{\color{primary}\subsection*{#1} \label{sec:#2}}}
+\newcommand{\fancysubsubX}[2] {{\color{primary}\subsubsection*{#1} \label{sec:#2}}}
+
+
+% P.S. I'm so fancy, you already know
+
+
+%%%%%%%%%%%%%%%%%
+% Begin Document
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\maketitle
+	\fancysec{Usage}{usage}
+		To start using the prototype for UCSC Plaza, it is recommened to use the version that we have hosted on a remote server. The address is http://54.67.8.20/ \\ It is highly recommened to use this product on Versions of Google Chrome. Other browsers are not fully supported and contain some bugs related to them. Our target build was directed at the Chrome browser, so features that may work in Chrome are not guaranteed to work in other browsers.
+	\fancysec{Functions that are not Working in the Product}{notworking}
+		\fancysub{Sign-Up/Log-In}{signup/login}
+			\begin{itemize}
+				\item In the sign-up page, If user enters a Username that is aldready in use, It will produce a message in red saying "Duplicated ID". Should the User change their username and try a different one and this time it is valid, the system will alert the user saying that the username is valid. But, if the user decides to change it again, but this time the username already exists, no message is displayed to the user saying that it is a "Duplicated ID". However, it is internally checking still because the user cannot proceed with producing a unique username.
+				\item Same verification code is sent to the same email address. The verification ID is based on the email address. This is a security flaw.
+				\item Due the way accounts are managed, the system knows who is logged in by looking at the username in the URL. This is added on login. It is possible for the user to remove the username and reload the page they are in a view it as if they were not a user. This is however not intended at all and cause alot of major functionality errors if the user proceeds to user the product without a username in the URL. This is a common bug shared amongst all pages. The goal is to prevent the user from changing the username in the URL but that functionality has not been implemented yet. Thus, if a User wanted to, they can change the username into someone else's and hence have absolute access to their account. This is a huge security bug.
+				\item Repeated refreshing of pages cause the username to be lost, resulting in the user being undefined.
+			\end{itemize}
+		\fancysub{Main Page}{mainPage}
+			\begin{itemize}
+				\item Main Page Logo, which loads the main page, if clicked repeatedly will cause the username in the URL to be undefined.
+				\item Bell icon has no functionality at this time.
+				\item Sometimes multiple location markers will be bouncing instead of just one. It is unclear at the moment what is the cause of this bug. We believe that if the user hovers over multiple events in a very short time window, this bug is triggered. This happens very very rarely.
+				\item The message button found in the expanded view and detailed view has no functionality implemented at this time.
+				\item The Expanded view only shows the owner of the event when the particular event is opened the second time.
+				\item There is a wide degree of issues that arise from mobile view. It is highly advised that you do not operate in mobile view as some visual layout bugs that can occur.
+				\item If the user chooses to leave an event, their acceptance status is not changed to waiting.
+			\end{itemize}
+		\fancysub{Create Event Page}{createEvent}
+			\begin{itemize}
+				\item If the Start Time or End Time Input are rapidly pressed in quick succession that it will not properly load its time and date input box.
+				\item When image is uploaded it is stretched and distorted and not displayed properly.
+			\end{itemize}
+		
+		\fancysub{My Page}{mypage}
+			\begin{itemize}
+				\item If you decide to leave an event in My page, it is not updated unless you refresh the page.
+				\item When seeing applicant list for the first time, it doesn't highlight which tab you are on, but in-fact shows the waiting tab by default.
+				\item After the host updates who joins the event or not, in the event list, the numbers do not get updated until the user refreshes the page.
+				\item If user scrolls through a modal box, exits the current box, and opens a new modal box, the current scroll position is not reset.
+			\end{itemize}
+	
+\end{document}

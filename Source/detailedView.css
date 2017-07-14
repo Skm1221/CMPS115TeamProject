@@ -1,0 +1,136 @@
+/* Header */
+
+.modal-header {
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.modal .modal-content {
+  padding-top: 0px;
+}
+
+.detailedViewHeader {
+  
+}
+
+/* Image Box */
+
+.detailedViewImage {
+  height: 300px;
+}
+
+.detailedViewImage i {
+  font-size: 80px;
+  padding-top: 110px;
+  margin: auto;
+  display: block;
+}
+
+.detailedViewImage img {
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.wideImage {
+  height: 100%;
+  width: auto;
+}
+
+.tallImage {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1450px) {
+  .wideImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .tallImage {
+    height: 100%;
+    width: auto;
+  }
+}
+
+/* Event Details */
+
+.detailedViewDetails i {
+  font-size: 40px;
+}
+
+.detailedViewDetails p {
+  font-size: 14px;
+  margin-top: -36px;
+  margin-left: 50px;
+  font-style: none;
+}
+
+.detailedViewDetails a {
+  font-size: 14px;
+  margin-top: -36px;
+  margin-left: 50px;
+  font-style: none;
+  display: block;
+}
+
+.detailedViewDetails a:hover {
+  text-decoration: underline;
+}
+
+/* Icon Row */
+
+.detailedViewIconBtn img {
+  display: block;
+  padding-top: 0px;
+  max-width: 48px;
+  max-height: 48px;
+  margin: auto;
+}
+
+.detailedViewIconBtn p {
+  font-size: 12pt;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: -8px;
+}
+
+/* Attendance */
+
+.detailedViewIconBtn img {
+  display: block;
+  padding-top: 0px;
+  max-width: 24px;
+  max-height: 24px;
+  margin: auto;
+}
+
+.detailedViewIconBtn p {
+  font-size: 12pt;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+/* Summary */
+
+.detailedViewSummary {
+  border-radius: 10px;
+}
+
+.detailedViewSummary p {
+  line-height: 26px;
+}
+
+/* Misc */
+
+.detailedViewDivider {
+  border: none;
+  height: 1px;
+  color: #47ABA7;
+  background-color: #47ABA7;
+  margin-bottom: 20px;
+  padding: 0px;
+}

@@ -1,0 +1,78 @@
+// In Create Event Page
+
+//When End Time is earlier than Start Time
+
+unit test: Prevent End Time from being earlier than Start Time
+	Set StartTime to time T
+	Set EndTime to time T - {month}
+	Set other event details.
+	Click Confirm Button.
+	Assert that there is a  Message alerting user saying "Event End Time set to Before the Event begins"
+	Assert that event is not submitted.
+
+
+
+//When Start Time and End time share the same time
+
+unit test: Prevent End Time from being same as Start Time
+	Set StartTime to time T
+	Set EndTime to time T
+	Set other event details.
+	Click Confirm Button.
+	Assert that there is a  Message alerting user saying "Event End Time set to Before the Event begins"
+	Assert that event is not submitted.
+
+
+
+//When User inputs a character string for max attendance
+
+unit test: Prevent character string in Max Attendance
+	Set Max Attendance to "asd$fas2d5f"
+	Set other Event details
+	Click Confirm Button.
+	Assert that there is a Message alerting user saying "Max Attendance must be Positive Whole number."
+	Assert that event is not submitted.
+
+
+//When User inputs a float
+
+unit test: Prevent float in Max Attendance
+	Set Max Attendance to "24.65"
+	Set other Event details
+	Click Confirm Button.
+	Assert that there is a Message alerting user saying "Max Attendance must be Positive Whole number."
+	Assert that event is not submitted.
+
+
+//When User inputs zero for max attendance
+
+unit test: Prevent zero in Max Attendance
+	Set Max Attendance to "0"
+	Set other Event details
+	Click Confirm Button.
+	Assert that there is a Message alerting user saying "Max Attendance cannot be zero."
+	Assert that event is not submitted.
+
+
+
+//When User inputs positive whole number for max attendance
+
+unit test: Prevent zero in Max Attendance
+	Set Max Attendance to "30"
+	Set other Event details
+	Click Confirm Button.
+	Assert that event is submitted.
+
+
+
+//When user inputs nothing in any field
+
+unit test: prevent event entry when no input
+	Click Confirm Button'
+	Assert that there is a message alerting user saying "Event Title Required"
+	Assert that there is a message alerting user saying "Google Maps Pin Required"
+	Assert that there is a message alerting user saying "Event Start Time Required"
+	Assert that there is a message alerting user saying "Event End Time Required"
+	Assert that there is a message alerting user saying "Event Location Required"
+	Assert that event is not submitted
+	

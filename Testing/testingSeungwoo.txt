@@ -1,0 +1,36 @@
+unit test expandview
+	click event in mainview
+	expandview open
+	there are three buttons 'Enter', 'Message', Status mark('Accepted', 'Waiting', 'Rejected')
+	
+unit test expandview(if host)
+	click event in mainview
+	expandview open
+	there is only one button 'Delete'
+
+unit test delete(if host)
+	on my event expandview in mainview
+	click delete button in expandview
+	expandview closed, my event gone
+	
+unit test message
+	click 'Message' button on expandview
+	appear red toast 'Currently unavailable.'
+
+unit test url
+	click url in expandview homepage section
+	url open
+	
+unit test detailview
+	click yellow text hyperlink 'Show more info' in expandview
+	open detailview popup
+	popup : 1/3 horizontal, 1/3 vertical size of full screen
+	
+unit test close_detailview
+	when detailview popup appeared
+	click another part
+	detailview gone
+
+unit test marker_bounce(map)
+	mouse over(hover) arbitrary event
+	the event's marker on map bounces.

@@ -1,0 +1,133 @@
+// In Login html.
+unit test: Login
+    Enter correct id
+    Enter correct pw
+    Click login button
+    “Please wait a few seconds…” is shown to user.
+    Page is changed to main.html
+
+unit test: wrong Login(pw part)
+    Enter correct id
+    Enter wrong pw
+    Click login button
+    “Please wait a few seconds…” is shown to user.
+    Alert that “No ResulT”
+   “Sorry, your username or password isn’t right.” is shown to user.
+    Page is not changed.
+
+unit test: wrong Login(id part)
+    Enter wrong id
+    Enter correct pw
+    Click login button
+    “Please wait a few seconds…” is shown to user.
+    Alert that “No ResulT”
+    “Sorry, your username or password isn’t right.” is shown to user.
+    Page is not changed.
+
+
+//In sign up html.
+unit test: prevent change id after duplication
+   Enter not duplicated Id.
+   Click Duplcate button.
+   alert You can use this username!.
+   Enter rest information.
+   Change id.
+   Click confirm.
+   alert Please Verify your UCSC E-mail.
+   
+unit test: prevent change email after verification
+   Enter ucsc email
+   Click verify my email
+   Shown private key line.
+   Enter private key.
+   hide private key line.
+   Enter rest information.
+   Change email to other.
+   Click confirm.
+   alert Please Check the ID Duplication.
+
+
+// In main html
+unit test: Search event
+    Click Search button(Icon) without any setting
+    Show the list of event that condition is only that end date is after current_time(when user click button)
+
+
+unit test: Search event (keyword)
+   Enter keyword in keyword bar
+   Click Search button
+   Show the list of event that condition is that end date is after current_time(when user click button) and title has pattern of string, which is user’s input.
+
+unit test: Search event (Major)
+   Click icon which is located in left-side of keyword bar.
+   Click major
+   Select major.
+   Click Search button
+   Show the list of event that condition is that end date is after current_time(when user click button) and major is user’s selection.
+
+unit test: Search event (Category)
+   Click icon which is located in left-side of keyword bar.
+   Click category
+   Check categories (multiple is ok)
+   Click Search button.
+   Show the list of event that condition is that end date is after current_time(when user click button) and category is in user’s checked list of category.
+
+unit test: Search event (StartTime)
+   Click icon which is located in left-side of keyword bar.
+   Click start date&time
+   Select start date&time.
+   Click Search button
+   Show the list of event that condition is that end date is after start date&time of user’s selection.
+
+unit test: Search event (endTime)
+   Click icon which is located in left-side of keyword bar.
+   Click end date&time
+   Select end date&time.
+   Click Search button
+   Show the list of event that condition is that end date is after current_time(when user click button), or start date is before end date&time of user’s selection
+
+  
+unit test: Search event (startTime, endTime)
+   Click icon which is located in left-side of keyword bar.
+   Click end date&time
+   Select end date&time.
+   Click Search button
+   Show the list of event that condition is that end date is after start date&time of user’s selection, or start date is before end date&time of user’s selection
+
+unit test:  Block user apply when number of current accepted user is equal event’s max attendance.
+   Search and receive list of event.
+   Click specific event.
+   Click Enter button.
+   Show toast “Application failed! The event is currently full…” to user.
+
+unit test: user apply to specific list.
+   Search and receive list of event.
+   Click specific event.
+   Click Enter button.
+   Change Enter button to Leave button.
+
+//In Mypage html.
+
+unit test: Show event List, which writer uploaded.
+   Click the gear icon, which is located in top-right side.
+   Click the Hosted Events tab.
+   Shown event list. event have title, date, max attendance, waiting number, accepted number.
+
+unit test: Show event List, which writer applied.
+    Clik the gear icon, which is located in top-right side.
+   Click the Applied Events tab.
+   Shown event list. event have title, date, writer id.
+
+// In application List html.
+unit test: writer’s acceptation of application.
+   Show list of user, who is waiting writer’s decision.
+   Click check icon button.
+   Add application in Database.
+   Remove the clicked user in list.
+   Click accepted tap.
+   show the accepted user list, and writer can find user, who is clicked previous.
+
+unit test: Block writer’s acceptation of application when number of current accepted user is equal event’s max attendance.
+   Show list of user, who is waiting writer’s decision.
+   Click check icon button.
+   Anything not happen.

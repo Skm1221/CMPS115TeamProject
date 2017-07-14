@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection" />
+  <link rel="stylesheet" href="DateTimePicker/dist/DateTimePicker.min.css">
+  <link rel="stylesheet" href="mainPage.css">
+  <link rel="stylesheet" href="colors.css">
+  <link rel="stylesheet" href="detailedView.css">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="http://maps.google.com/maps/api/js?key=AIzaSyB6Lz24NEsy8I_cDxm6vUVGXlqwNlkC2yk&language=en"></script>
+  <script src="jqueryGoogleMapAPI/jquery.googlemap.js"></script>
+  <script type="text/javascript" src="DateTimePicker/dist/DateTimePicker.min.js"></script>
+  <script src="dateFormat.js"></script>
+</head>
+
+<body onload = "receive_user_id()" style="height:800px">
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  
+  <nav>
+    <div class="nav-wrapper" style="background-color:#47aba7;">
+      <a href = "#" onclick= "return_currentPage()" class="brand-logo left"><img src="../images/png/logo.png" height="20px" width="80px" style="margin-left:20px;" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	  <li>
+          <a href="#!" style="height:40px; width:50px;">
+            <img src="../images/png/notification.png" height="25px" width="20px" style="margin-top:7px;" />
+          </a>
+        </li>
+        <li>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#" onclick="return_myPage()">My Page</a></li>
+            <li class="divider"></li>
+            <li class="betweenGreenDark"><a id="aLogout" href="Login_UCSC.html">Logout</a></li>
+          </ul>
+          <a href="#!" class="dropdown-button" style="height:40px; width:50px; margin-right:10px;" data-activates="dropdown1">
+            <img src="../images/png/gear.png" height="25px" width="25px" style="margin-top:7px;" />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="row">
+    <div id="body" class="col offset-s1 offset-l0 s10 l12">
+      <!-- Filter -->
+      <div class="col s12 l4 hide-on-large-only">
+        <ul class="eventSearch betweenGreenDeep collapsible">
+          <li class="row">
+            <span id="searchS" class="col s12">
+              <a id="toggleFilterS" onclick="toggleFilter()" class="filterBtn waves-effect waves-light betweenGreenDark white-text"><i class="material-icons left">toc</i></a>
+              <br  />
+              <div class="searchBar input-field">
+                <input placeholder="Search UCSC Plaza Events" id="keywordSearchS" type="search" class="keywordSearch" />              
+                <i onClick="requestEvents()" class="filterSearchBtn material-icons white-text">search</i>
+              </div>
+            </span>
+            <div id="collapsibleHeaderSearchS" class="collapsible-header hide"></div>
+            <div class="filterMenu col s12 collapsible-body white">
+              <article class="row">
+                <select id="majorSearchS" class="col s6">
+                  <option value="" selected>Major</option>
+                  <option value="Art">Art</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Economics">Economics</option>
+                  <option value="History">History</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Physics">Physics</option>
+                </select>
+                <select id="categorySearchS" multiple class="col s6">
+                  <option value="" disabled selected>Category</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Game">Game</option>
+                  <option value="Party">Party</option>
+                  <option value="Study">Study</option>
+                  <option value="etc">etc</option>
+                </select>
+              </article>
+              <article class="row">
+                <span class="col s6">
+                  <input id="startDatetimeS" type="text" data-field="datetime" readonly placeholder="start date&time"></input>
+                  <div id="dtBoxStartS"></div>
+                </span>
+                <span class="col s6">
+                  <input id="endDatetimeS" type="text" data-field="datetime" readonly placeholder="end date&time">
+                  <div id="dtBoxEndS"></div>
+                </span>
+              </article>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Map -->
+      <div id="mapContainer" class="col s12 l8 push-l4 fixed-action-btn" style="right: 24px; bottom: 5px;">
+        <section id="mapholder" class="betweenGreenDeep-borderThick"></section>
+      </div>
+      <aside class="col s12 l4 pull-l8">
+        <!-- Filter -->
+        <ul class="eventSearch betweenGreenDeep collapsible hide-on-med-and-down">
+          <li class="row">
+            <span id="searchL" class="col s12">
+              <a id="toggleFilterL" onclick="toggleFilter()" class="filterBtn waves-effect waves-light betweenGreenDark white-text"><i class="material-icons left">toc</i></a>
+              <br  />
+              <div class="searchBar input-field">
+                <input placeholder="Search UCSC Plaza Events" id="keywordSearchL" type="search" />              
+                <i onClick="requestEvents()" class="filterSearchBtn material-icons white-text">search</i>
+              </div>
+            </span>
+            <div id="collapsibleHeaderSearchL" class="collapsible-header hide"></div>
+            <div class="filterMenu col s12 collapsible-body white">
+              <article class="row">
+                <select id="majorSearchL" class="col s6">
+                  <option value="" selected>Major</option>
+                  <option value="Art">Art</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Economics">Economics</option>
+                  <option value="History">History</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Physics">Physics</option>
+                </select>
+                <select id="categorySearchL" multiple class="col s6">
+                  <option value="" disabled selected>Category</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Game">Game</option>
+                  <option value="Party">Party</option>
+                  <option value="Study">Study</option>
+                </select>
+              </article>
+              <article class="row">
+                <span class="col s6">
+                  <input id="startDatetimeL" type="text" data-field="datetime" readonly placeholder="start date&time"></input>
+                  <div id="dtBoxStartL"></div>
+                </span>
+                <span class="col s6">
+                  <input id="endDatetimeL" type="text" data-field="datetime" readonly placeholder="end date&time">
+                  <div id="dtBoxEndL"></div>
+                </span>
+              </article>
+            </div>
+          </li>
+        </ul>
+        <!-- Events -->
+        <ul id="eventList" class="collapsible collapsible-event">
+        </ul>
+      </aside>
+      
+    </div>
+    <div class="fixed-action-btn" style="right: 24px; bottom: 8px;">
+      <a id="createEvent" href="#" onclick="return_createPage()" class="waves-effect waves-light btn-floating">+</a>
+    </div>
+  </main>
+  
+  <!-- Modal Window for Detailed View -->
+  <div id="detailedView" class="modal"></div>
+  
+  <script src="ExpandedView.js"></script>
+  <script src="DetailedView.js"></script>
+</body>
+
+</html>

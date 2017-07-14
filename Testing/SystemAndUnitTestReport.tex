@@ -1,0 +1,274 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%
+% Miscellaneous
+%%%%%%%%%%%%%%%%
+
+\definecolor{primary}{rgb}{0,0,.50}
+%\definecolor{primary}{rgb}{0,0,0}
+\definecolor{secondary}{rgb}{.7,.5,0}
+\definecolor{table-primary}{rgb}{1,1,1}
+\definecolor{table-secondary}{rgb}{.975,.99,1}
+
+%%%%%%%%%%%%%%%%
+% Title Section
+%%%%%%%%%%%%%%%%
+
+\title{\color{primary}\texttt{System and Unit Test Report \\ UCSC Plaza}}
+\author{{\color{secondary}\textbf{Team Amlesh the Great}} \\ Kyungmin So (PO), Youngsoo Jang, \\ Hobin Ryu, Seungwoo Lee \\ Amlesh Sivanantham, and James Garbagnati }
+\date{July 25, 2016}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% User-Defined Macros
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\ignore = Multiline comments
+\newcommand{\ignore}[1]{}
+
+\newcommand{\gobblepagenum}{\thispagestyle{empty}\addtocounter{page}{-1}}
+
+%\fancysec{Section title}{Label} = Fancy, colored and labelled section
+% Basically just to make it easier to change the format of the whole doc
+% Commands with an X are non-numbered sections
+\newcommand{\fancysec}[2] {{\color{primary}\section{#1} \label{sec:#2}}}
+\newcommand{\fancysub}[2] {{\color{primary}\subsection{#1} \label{sec:#2}}}
+\newcommand{\fancysubsub}[2] {{\color{primary}\subsubsection{#1} \label{sec:#2}}}
+
+\newcommand{\fancysecX}[2] {{\color{primary}\section*{#1} \label{sec:#2}}}
+\newcommand{\fancysubX}[2] {{\color{primary}\subsection*{#1} \label{sec:#2}}}
+\newcommand{\fancysubsubX}[2] {{\color{primary}\subsubsection*{#1} \label{sec:#2}}}
+
+
+% P.S. I'm so fancy, you already know
+
+
+%%%%%%%%%%%%%%%%%
+% Begin Document
+%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\fancysec{System Test Scenarios}{systemTestScenarios}
+	\fancysub{Sprint 1}{sprint1}
+		\begin{itemize}
+			\item User Story 1: As a member of the UCSC community, I want to be able to log in to an unique account made for me, so that I can use the application ``UCSC Plaza."
+			
+			\begin{itemize}
+				\item Go to UCSC Plaza Main Page.
+				\item Click on the "Not a Member? Sign Up" link, type input details
+				\begin{itemize}
+					\item username = (cmps115)
+					\begin{itemize}
+						\item Click the Check Duplication
+						\item Get Confirmation that username is not taken.
+					\end{itemize}
+					\item password = (cmps115pass)
+					\item password confirmation = (cmps115pass)
+					\item First Name  = (Alexander)
+					\item Last Name = (Hamilton)
+					\item Major = (Computer Science)
+					\item Division = (Jack Basking School of Engineering)
+					\item email = (asivanan@ucsc.edu)
+				\end{itemize}
+				\item Click Verify Email button. Go check your email for code.
+				\begin{itemize}
+					\item Input the private key
+					\item Click the Verify button
+					\item A success alert will popup
+				\end{itemize}
+				\item Press the confirm button
+				\item Taken back to the main Page
+				\item input username and password just made and click Login
+			\end{itemize}
+			
+			      
+			\item User Story 2: As an event planner, I want my event to be shown to members of the UCSC community, so that I can advertise strictly to UCSC members.
+			\begin{itemize}
+				\item This is shown in the previous system test. Only UCSC email addresses can be verified.
+			\end{itemize}
+			
+			\item User Story 3: As an event planner, I want to add or delete my events, so that other members of UCSC can see if my event is available.
+			\begin{itemize}
+				\item In the Main Page, click on the Create Event
+				\item Redirected to the Create Event page; and Input Details
+				\begin{itemize}
+					\item Event title = (Acceptance Test)
+					\item Marker Location = ...
+					\begin{itemize}
+						\item Move map and click on the Area closest to BE316.
+						\item A coordinate marker will be place.
+					\end{itemize}
+					\item Detailed Description = (Write anything)
+					\item INSERT MAIN PICTURE = ...
+					\begin{itemize}
+						\item Clicking it opens up a file manager
+						\item Open a picture file
+					\end{itemize}
+					\item Major = (Physics)
+					\item Category = (Party)
+					\item Starting Time = (2016 Jul 28 18 00)
+					\item Ending TIme = (2016 Jul 28 18 30)
+					\item Event Location = (BE 316)
+					\item Max Attendance = (8)
+					\item Homepage = ()
+				\end{itemize}
+				\item Hit the confirm button to add event.
+				\item To delete this event, Look at event list and find your event.
+				\item Click on it to open details
+				\item Press the delete button.
+			\end{itemize}
+
+			\item User Story 4: As an event-goer, I want to see a map of the UCSC campus, so that I know where events are planned to happen.
+			\begin{itemize}
+				\item Load Main Page
+				\item See the google map
+			\end{itemize}
+
+			\item User Story 5: As an event-goer, I want to be able to see details of an event, so that I can decide whether I want to attend or not.
+			\begin{itemize}
+				\item In the Event List click on an Event
+				\item View Details of the event
+				\item Click on the More Info link
+				\item View Detailed View of the event
+			\end{itemize}
+		\end{itemize}
+	\fancysub{Sprint 2}{sprint2}
+    
+	    \begin{itemize}
+	    	\item User Story 1: As an event planner, I want to add or delete my events, so that other members of UCSC can see if my event is available.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+	    	
+	    	\item User Story 2: As an event-goer, I want to be able to see details of an event, so that I can decide whether or not to go.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+	    	
+	    	\item User Story 3: As an event-goer, I want to be able to search for specific events, so that I may find the event that I need.
+	    	\begin{itemize}
+	    		\item Type Search Query Soccer in the Search field.
+	    		\item Select the Search Menu button and input the following
+	    		\begin{itemize}
+	    			\item Major = (Major)
+	    			\item Category = (Sports)
+	    			\item Start Time = (2016 Jul 28 18 00)
+	    			\item End Time = (2016 Dec 01 18 00)
+		    	\end{itemize}
+		    	\item Press the Search Icon to begin search
+		    	\item View the Event list 
+		    \end{itemize}
+	  
+	    	\item User Story 4: As an event-goer, I want to be able to see a marker on the map, so that I can see where it is.
+	    	\begin{itemize}
+	    		\item Open Main Page.
+	    		\item Look at Google map and identify markers.
+	    		\item Click on an event in Event List.
+	    		\item Look at Google map and identify marker. related to event. It will be bouncing.
+	    	\end{itemize}
+	    	
+	    	\item User Story 5: As an event-goer, I want to be able to send or rescind an application to a specific event, so that the event planner knows whether I will attend or not.
+	    	\begin{itemize}
+	    		\item Open Main Page.
+	    		\item Click on an Event to open expanded view.
+	    		\item Click on the Enter Button to apply.
+	    		\item Click on the Leave Button to leave.
+	    	\end{itemize}
+	
+	    	\item User Story 6: As an event planner, I want to be able to see who applied to my event and be able to accept or decline their application, so that event-goers know if they are allowed to participate or not.
+	    	\begin{itemize}
+	    		\item Go to My Page
+	    		\item Click on the Hosted Events Tab
+	    		\item Click on your event
+	    		\item See List Of users who applied to your event
+	    	\end{itemize}
+	    
+	    	\item User Story 7: As an event planner, I want to be able to manage my event, so that I can apply certain constraints to the event.
+	    	\begin{itemize}
+	    		\item Go to My Page
+	    		\item Click on the hosted Events tab
+	    		\item Click on your event
+	    		\item See the Waiting tab to see list of users currently waiting to find out status.
+	    		\begin{itemize}
+	    			\item Press green check-mark button next to user's name to accept them.
+	    			\item Press red X-mark button next to user's name to reject them.
+		    	\end{itemize}
+		    	\item See the Accepted tab to see list of users you have accepted.
+		    	\begin{itemize}
+		    		\item Press yellow clock button next to user's name to send them back to waiting
+		    	\end{itemize}
+		    	\item See the Rejected tab to see list of users you have rejected.
+		    	\begin{itemize}
+		    		\item Press yellow clock button next to user's name to send them back to waiting
+		    	\end{itemize}
+	    	\end{itemize}
+	    	
+	    \end{itemize}
+
+	\fancysub{Sprint 3}{sprint3}
+	
+		\begin{itemize}
+			\item User Story 1: As an event planner, I want to add or delete my events, so that other members of UCSC can see if my event is available.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+
+			\item User Story 2: As an event-goer, I want to be able to see details of an event, so that I can decide whether or not to go.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+	    	
+			\item User Story 3: As an event-goer, I want to be able to search for specific events, so that I may find the event that I need.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+	    	
+			\item User Story 4: As an event-goer, I want to be able to send or rescind an application to a specific event, so that the event planner knows whether I will attend or not.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+	    	
+			\item User Story 5: As an event planner, I want to be able to see who applied to my event and be able to accept or decline their application, so that event-goers know if they are allowed to participate or not.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+
+			\item User Story 6: As an event planner, I want to be able to manage my event, so that I can apply certain constraints to the event.
+	    	\begin{itemize}
+	    		\item This System test is already implemented in the previous sprint
+	    	\end{itemize}
+			
+			\item User Story 7: As an event-goer, I want to see the current and maximum attendance for the event, so that I can ensure there is space for me to attend and that it is not overcrowded.
+			\begin{itemize}
+				\item Go to Main Page and find your Event.
+				\item Open the expanded view.
+				\item Look at the Person Icon to see how many have been accepted out of the total number allowed.
+			\end{itemize}
+			
+			\item User Story 8: As an event-planner, I want to ensure that my event does not exceed maximum attendance, so that my event is not overcrowded and has enough room for all event-goers.
+			\begin{itemize}
+				\item Go to My Page
+				\item Go to the Hosted Events tab
+				\item Look at your event but do not click on it.
+				\begin{itemize}
+					\item The Person Icon shows Max Allowed to this event
+					\item The Clock Icon shows how many people are waiting
+					\item the Green Checkmark shows how many people have been accepted.
+				\end{itemize}
+			\end{itemize}
+			
+		\end{itemize}
+	\fancysec{Unit Tests}{unitTest}
+		\begin{itemize}
+			\item Please see the files alongside this file with in the naming scheme testingPersonName.txt. This contain the hand written unit tests.
+		\end{itemize}
+	
+	
+\end{document}

@@ -1,0 +1,54 @@
+// In Main Page
+
+// When user search events
+unit test: Ensure that server get correct data from webpage.
+	Input keyword you want to search on the search box.
+	Click the button left to the search box to open filters for search.
+	Select major, category, start date&time, or end date&time.
+	Click the button right to the search box to get a list of events.
+
+	Assert if server get data as following JSON type { keyword: "KEYWORD", category: "CATEGORY", major: "MAJOR", startDatetime: "STARTDATETIME", endDatetime: "endDatetime" }
+	Assert if server get "keyword" as "nnull" if user doesn't input anything in search bar.
+	Assert if server get "category" as "nnull" if user doesn't select any category.
+	Assert if server get "major" as "nnull" if user doesn't select any major.
+	Assert if server get "startDatetime" as "nnull" if user doesn't select start date&time.
+	Assert if server get "endDatetime" as "nnull" if user doesn't select end date&time.
+
+unit test: Visually ensure that server respond correct data to webpage.
+        Input keyword you want to search on the search box.
+        Click the button left to the search box to open filters for search.
+        Select major, category, start date&time, or end date&time.
+        Click the button right to the search box to get a list of events.
+
+	Assert that a list of events are filled on left of the google map with event header text.
+
+
+// When user mouseover and mouseleave on one of the events
+unit test: Visually ensure that a marker bounces
+	Put the cursor on one of the events.
+
+	Assert the marker of the event is bouncing.
+
+unit test: Visually ensure that a marker stop bouncing
+	Put away the cursor from the events.
+
+	Assert the marker of the event stops bouncing.
+
+// When user click one of the dropdown from gear
+unit test: Ensure that user can move from main page to my page when clicks "My Page"
+	Click gear icon on the top right of main page.
+	Click "My Page".
+
+	Assert the page moves to My Page.
+
+unit test: Ensure that user can logout from main page
+	Click gear icon on the top right of main page.
+	Click "Logout".
+
+	Assert the page moves to Login Page and the user id is removed from the url.
+
+// When user scroll down
+unit test: Visually ensure that "+" button is fixed on the bottom right of the screen
+	Scroll down the main page
+
+	Assert the "+" button is still appear on the bottom right of the screen.

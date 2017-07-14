@@ -1,0 +1,185 @@
+/* Between Green */
+
+.betweenGreen {
+  background-color: #50BDB8;
+}
+
+.betweenGreen-text {
+  color: #50BDB8;
+}
+
+.betweenGreen-border {
+  border: solid 1px #50BDB8;
+}
+
+.betweenGreen-borderThick {
+  border: solid 2px #50BDB8;
+}
+
+.betweenGreen-hover:hover {
+  background-color: #50BDB8;
+}
+
+.betweenGreen-hoverBorder:hover {
+  border: solid 1px #50BDB8;
+}
+
+/* Between Green Deep */
+
+.betweenGreenDeep {
+  background-color: #47ABA7;
+}
+
+.betweenGreenDeep-text {
+  color: #47ABA7;
+}
+
+.betweenGreenDeep-border {
+  border: solid 1px #47ABA7;
+}
+
+.betweenGreenDeep-borderThick {
+  border: solid 2px #47ABA7;
+}
+
+.betweenGreenDeep-hover:hover {
+  background-color: #47ABA7;
+}
+
+.betweenGreenDeep-hoverBorder:hover {
+  border: solid 1px #47ABA7;
+}
+
+/* Between Green Dark */
+
+.betweenGreenDark {
+  background-color: #338885;
+}
+
+.betweenGreenDark-text {
+  color: #338885;
+}
+
+.betweenGreenDark-border {
+  border: solid 1px #338885;
+}
+
+.betweenGreenDark-borderThick {
+  border: solid 2px #338885;
+}
+
+.betweenGreenDark-hover:hover {
+  background-color: #338885;
+}
+
+.betweenGreenDark-hoverBorder:hover {
+  border: solid 1px #338885;
+}
+
+
+/* Between Green Darker */
+
+.betweenGreenDarker {
+  background-color: #1F6764;
+}
+
+.betweenGreenDarker-text {
+  color: #1F6764;
+}
+
+.betweenGreenDarker-border {
+  border: solid 1px #1F6764;
+}
+
+.betweenGreenDarker-borderThick {
+  border: solid 2px #1F6764;
+}
+
+.betweenGreenDarker-hover:hover {
+  background-color: #1F6764;
+}
+
+.betweenGreenDarker-hoverBorder:hover {
+  border: solid 1px #1F6764;
+}
+
+/* Maybe Red */
+
+.maybeRed {
+  background-color: #E83828;
+}
+
+.maybeRed-text {
+  color: #E83828;
+}
+
+.maybeRed-border {
+  border: solid 1px #E83828;
+}
+
+.maybeRed-borderThick {
+  border: solid 2px #E83828;
+}
+
+.maybeRed-hover:hover {
+  background-color: #E83828;
+}
+
+.maybeRed-hoverBorder:hover {
+  border: solid 1px #E83828;
+}
+
+/* Between Green Darker */
+
+.grrrrrey {
+  background-color: #B5B5B6;
+}
+
+.grrrrrey-text {
+  color: #B5B5B6;
+}
+
+.grrrrrey-border {
+  border: solid 1px #B5B5B6;
+}
+
+.grrrrrey-borderThick {
+  border: solid 2px #B5B5B6;
+}
+
+.grrrrrey-hover:hover {
+  background-color: #B5B5B6;
+}
+
+.grrrrrey-hoverBorder:hover {
+  border: solid 1px #B5B5B6;
+}
+
+/* White */
+
+.white-border {
+  border: solid 1px #FFFFFF;
+}
+
+.white-borderThick {
+  border: solid 2px #FFFFFF;
+}
+
+.white-text {
+  color: #FFFFFF;
+}
+/* Gold */
+
+.ucscGold {
+  background-color: #FCC800;
+}
+
+/* Black */
+
+.black-border {
+  border: solid 1px #000000;
+}
+
+.black-borderThick {
+  border: solid 2px #000000;
+}

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.mod.css"  media="screen,projection"/>
+    
+    <link rel="stylesheet" href="detailedView.css">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="ApplicantList.css">
+    
+    <!--Let browser know website is optimized for mobile-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <!--Import Bootpag.js-->
+    <script type="text/javascript" src="jquery-bootpag/lib/jquery.bootpag.js"></script>
+    
+    <!--Import materialize.min.js-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    
+    <script type="text/javascript" src="DetailedView.js"></script>
+    <script type="text/javascript" src="ExpandedView.js"></script>
+    <script type="text/javascript" src="ApplicantList.js"></script>
+    
+    <style>
+        .infobox h1 {
+            padding-top: 40px;
+            font-family: "Muli";
+            font-size: 23px;
+            text-align: center;
+            color: #338885;
+        }
+        .infobox span {
+            color: #3e3a39;
+        }
+        .infobox h2 {
+            margin: 0px 0px 10px;
+            font-family: "Muli";
+            font-size: 18px;
+            text-align: center;
+        }
+        .infobox h3 {
+            margin: 0px 0px 10px;
+            font-family: "Muli";
+            font-size: 18px;
+            text-align: center;
+        }
+        .infobox h4 {
+            margin: 0px 0px 0px;
+            font-family: "Muli";
+            font-size: 18px;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        .tabs .tab {
+            text-transform: none;
+            font-family: "Muli";
+            font-size: 20px;
+        }
+        .tabs .tab a {
+            color: #338885;
+        }
+        .tabs .tab a:hover {
+            color: #1f6764;
+        }
+        .tabs .indicator {
+            background-color: #47aba7;
+        }
+        .event {
+            padding-left: 20px;
+        }
+        .event h1 {
+            font-family: "Muli";
+            font-size: 22px;
+            color: #1f6764;
+            margin: 0px 0px 8px;
+        }
+        .event h2 {
+            font-family: "Muli";
+            font-size: 16px;
+            color: #898989;
+            margin: 0px 0px 8px;
+        }
+        .event h3 {
+            font-family: "Muli";
+            font-size: 19px;
+            margin: 0px 0px 0px;
+        }
+        .event h4 {
+            font-family: "Muli";
+            font-size: 16px;
+            color: #47aba7;
+            margin: 3px 0px 5px;
+        }
+        .total {
+            color: #47aba7;
+        }
+        .waiting {
+            color: #f8b62d;
+        }
+        .accepted {
+            color: #009944;
+        }
+        td {
+            padding: 11px 5px;
+        }
+        .pagination li.active {
+            background-color: #47aba7;
+        }
+        .pagination li {
+            font-family: "Muli";
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body onload="UserInfo(); HostedEvents(); AppliedEvents();">
+
+    <nav>
+        <div class="nav-wrapper" style="background-color:#47aba7;">
+            <a href = "#" onclick= "return_mainPage()" class="brand-logo left"><img src="../images/png/logo.png" height="20px" width="80px" style="margin-left:20px;" /></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                </li>
+                <li>
+                    <a href="#!" style="height:40px; width:50px;">
+                        <img src="../images/png/notification.png" height="25px" width="20px" style="margin-top:7px;" />
+                    </a>
+                </li>
+                <li>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#" onclick="return_myPage()">My Page</a></li>
+                        <li class="divider"></li>
+                        <li class="betweenGreenDark"><a id="aLogout" href="Login_UCSC.html">Logout</a></li>
+                    </ul>
+                    <a href="#!" class="dropdown-button" style="height:40px; width:50px; margin-right:10px;" data-activates="dropdown1">
+                        <img src="../images/png/gear.png" height="25px" width="25px" style="margin-top:7px;" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="row">
+        <div class="col s8" style="padding:30px 70px 0px;">
+            <div class="col s7" style="margin-bottom:20px;">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="#hosted_events" onclick="ResetHostedEvents()">Hosted Events</a></li>
+                    <li class="tab col s3"><a href="#applied_events" onclick="ResetAppliedEvents()">Applied Events</a></li>
+                </ul>
+            </div>
+            
+            <div id="hosted_events" class="col s12">
+                <table class="bordered highlight" style="table-layout:fixed;">
+                    <tbody>
+                        <tr id="event0" onclick="OpenDetailModal('hosted', 0);">
+                            <td width="90%">
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title0"></span></h1>
+                                    <h2><span id="startdate0"></span></h2>
+                                    <h3>
+                                        <img src="../images/png/profile.png" height="18px" width="18px" />
+                                        <span class="total" id="total0"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/waiting.png" height="18px" width="18px" />
+                                        <span class="waiting" id="waiting0"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/accepted.png" height="18px" width="18px" />
+                                        <span class="accepted" id="accepted0"></span>
+                                    </h3>
+                                </div>
+                            </td>
+                            <td width="10%">
+                            </td>
+                        </tr>
+                        <tr id="event1" onclick="OpenDetailModal('hosted', 1);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title1"></span></h1>
+                                    <h2><span id="startdate1"></span></h2>
+                                    <h3>
+                                        <img src="../images/png/profile.png" height="18px" width="18px" />
+                                        <span class="total" id="total1"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/waiting.png" height="18px" width="18px" />
+                                        <span class="waiting" id="waiting1"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/accepted.png" height="18px" width="18px" />
+                                        <span class="accepted" id="accepted1"></span>
+                                    </h3>
+                                </div>
+                            </td>
+                            <td width="5%">
+                            </td>
+                        </tr>
+                        <tr id="event2" onclick="OpenDetailModal('hosted', 2);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2"></span></h1>
+                                    <h2><span id="startdate2"></span></h2>
+                                    <h3>
+                                        <img src="../images/png/profile.png" height="18px" width="18px" />
+                                        <span class="total" id="total2"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/waiting.png" height="18px" width="18px" />
+                                        <span class="waiting" id="waiting2"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/accepted.png" height="18px" width="18px" />
+                                        <span class="accepted" id="accepted2"></span>
+                                    </h3>
+                                </div>
+                            </td>
+                            <td width="5%">
+                            </td>
+                        </tr>
+                        <tr id="event3" onclick="OpenDetailModal('hosted', 3);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title3"></span></h1>
+                                    <h2><span id="startdate3"></span></h2>
+                                    <h3>
+                                        <img src="../images/png/profile.png" height="18px" width="18px" />
+                                        <span class="total" id="total3"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/waiting.png" height="18px" width="18px" />
+                                        <span class="waiting" id="waiting3"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/accepted.png" height="18px" width="18px" />
+                                        <span class="accepted" id="accepted3"></span>
+                                    </h3>
+                                </div>
+                            </td>
+                            <td width="5%">
+                            </td>
+                        </tr>
+                        <tr id="event4" onclick="OpenDetailModal('hosted', 4);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title4"></span></h1>
+                                    <h2><span id="startdate4"></span></h2>
+                                    <h3>
+                                        <img src="../images/png/profile.png" height="18px" width="18px" />
+                                        <span class="total" id="total4"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/waiting.png" height="18px" width="18px" />
+                                        <span class="waiting" id="waiting4"></span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="../images/png/accepted.png" height="18px" width="18px" />
+                                        <span class="accepted" id="accepted4"></span>
+                                    </h3>
+                                </div>
+                            </td>
+                            <td width="5%">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="center-align pagination1"></div>
+            </div>
+            
+            <div id="applied_events" class="col s12">
+                <table class="bordered highlight" style="table-layout:fixed;">
+                    <tbody>
+                        <tr id="eventA0" onclick="OpenDetailModal('applied', 0);">
+                            <td width="80%">
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2_0"></span></h1>
+                                    <h2><span id="startdate2_0"></span></h2>
+                                    <h4><span id="plannername0"></span></h4>
+                                </div>
+                            </td>
+                            <td width="8%">
+                            </td>
+                            <td width="12%">
+                                <span class="status" id="status0">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr id="eventA1" onclick="OpenDetailModal('applied', 1);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2_1"></span></h1>
+                                    <h2><span id="startdate2_1"></span></h2>
+                                    <h4><span id="plannername1"></span></h4>
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="status" id="status1">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr id="eventA2" onclick="OpenDetailModal('applied', 2);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2_2"></span></h1>
+                                    <h2><span id="startdate2_2"></span></h2>
+                                    <h4><span id="plannername2"></span></h4>
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="status" id="status2">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr id="eventA3" onclick="OpenDetailModal('applied', 3);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2_3"></span></h1>
+                                    <h2><span id="startdate2_3"></span></h2>
+                                    <h4><span id="plannername3"></span></h4>
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="status" id="status3">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr id="eventA4" onclick="OpenDetailModal('applied', 4);">
+                            <td>
+                                <div class="event">
+                                    <h1 class="truncate"><span id="title2_4"></span></h1>
+                                    <h2><span id="startdate2_4"></span></h2>
+                                    <h4><span id="plannername4"></span></h4>
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="status" id="status4">
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="center-align pagination2"></div>
+            </div>
+        </div>
+        
+        <div class="col s4" style="padding:20px 80px 0px 0px;">
+            <div style="background:#efefef; box-shadow: 2px 2px 5px #888888;">
+                <div class="infobox">
+                    <h1>Hello! <span id="firstname"></span>&nbsp;<span id="lastname"></span></h1>
+                    <h2><span id="major"></span></h2>
+                    <h3><span id="division"></span></h3>
+                    <h4><span id="email"></span>@ucsc.edu</h4>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <div id="detailedView" class="modal"></div>
+    
+    <!-- Modal Structure -->
+    <div id="applicantList" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s8" style="margin-bottom:10px;">
+                    <ul class="tabs">
+                        <li class="tab col s1">
+                            <a name="waiting" href="#waitingList" onclick="ShowList('waiting');"><img src="../images/png/waiting.png" height="19px" width="19px" /> Waiting</a>
+                        </li>
+                        <li class="tab col s1">
+                            <a name="accepted" href="#acceptedList" onclick="ShowList('accepted');"><img src="../images/png/accepted.png" height="19px" width="19px" /> Accepted</a>
+                        </li>
+                        <li class="tab col s1">
+                            <a name="rejected" href="#rejectedList" onclick="ShowList('rejected');"><img src="../images/png/rejected.png" height="19px" width="19px" /> Rejected</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="waitingList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="waitingTbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="acceptedList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="acceptedTbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="rejectedList" class="col s12">
+                    <table class="bordered highlight" style="table-layout:fixed;">
+                        <tbody id="rejectedTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    var user_id;
+    var num_hosted, num_applied;
+    var array_hosted, array_applied;
+    var page_hosted = 1, page_applied = 1;
+    
+    function receive_user_id() {
+        user_id = window.location.href.split("?")[1].split("&")[0];
+    }
+    
+    function return_currentPage(){
+        window.location = "./MyPage.html?"+user_id+"&";
+    }
+    
+    function return_mainPage(){
+        window.location = "./main.html?"+user_id+"&";
+    }
+    
+    function UserInfo() {
+        receive_user_id();
+        
+        $.ajax({
+            type: "POST",
+            url: "getUserInfo.php",
+            data: {
+                user_id : user_id
+            },
+            success: function(html){
+                html = JSON.parse(html);
+                $("span#firstname").html(html.firstname);
+                $("span#lastname").html(html.lastname);
+                $("span#major").html(html.major);
+                $("span#division").html(html.division);
+                $("span#email").html(html.email);
+            }
+        })
+    }
+    
+    function HostedEvents() {
+        $.ajax({
+            type: "POST",
+            url: "getUserHostedEvent.php",
+            data: {
+                user_id : user_id
+            },
+            success: function(html){
+                html = JSON.parse(html);
+                array_hosted = html;
+                num_hosted = array_hosted.length;
+                MakePaginationHosted();
+                ShowHostedEvents(1);
+            }
+        })
+    }
+    
+    function AppliedEvents() {
+        $.ajax({
+            type: "POST",
+            url: "getUserAppliedEvent.php",
+            data: {
+                user_id : user_id
+            },
+            success: function(html){
+                html = JSON.parse(html);
+                array_applied = html;
+                num_applied = array_applied.length;
+                MakePaginationApplied();
+            }
+        })
+    }
+    
+    function ShowHostedEvents(num) {
+        var num_prev = ((num - 1) * 5);
+        var num_present = (num_hosted - num_prev);
+        var array_index;
+        
+        if (num_present < 5) {
+            for (i = 0; i < num_present; i++) {
+                array_index = num_prev + i;
+                $("span#title"+i.toString()).html(array_hosted[array_index].title);
+                $("span#startdate"+i.toString()).html(ChangeFormatDate(array_hosted[array_index].startDate));
+                $("span#total"+i.toString()).html(array_hosted[array_index].maxCount);
+                if (array_hosted[array_index].waitingCount == null) {
+                    $("span#waiting"+i.toString()).html(0);
+                }
+                else {
+                    $("span#waiting"+i.toString()).html(array_hosted[array_index].waitingCount);
+                }
+                if (array_hosted[array_index].acceptedCount == null) {
+                    $("span#accepted"+i.toString()).html(0);
+                }
+                else {
+                    $("span#accepted"+i.toString()).html(array_hosted[array_index].acceptedCount);
+                }
+            }
+            for (i = num_present; i < 5; i++) {
+                document.getElementById("event"+i.toString()).style.display = "none";
+            }
+        }
+        else {
+            for (i = 0; i < 5; i++) {
+                document.getElementById("event"+i.toString()).style.display = "";
+                
+                array_index = num_prev + i;
+                $("span#title"+i.toString()).html(array_hosted[array_index].title);
+                $("span#startdate"+i.toString()).html(ChangeFormatDate(array_hosted[array_index].startDate));
+                $("span#total"+i.toString()).html(array_hosted[array_index].maxCount);
+                if (array_hosted[array_index].waitingCount == null) {
+                    $("span#waiting"+i.toString()).html(0);
+                }
+                else {
+                    $("span#waiting"+i.toString()).html(array_hosted[array_index].waitingCount);
+                }
+                if (array_hosted[array_index].acceptedCount == null) {
+                    $("span#accepted"+i.toString()).html(0);
+                }
+                else {
+                    $("span#accepted"+i.toString()).html(array_hosted[array_index].acceptedCount);
+                }
+            }
+        }
+    }
+    
+    function ShowAppliedEvents(num) {
+        var num_prev = ((num - 1) * 5);
+        var num_present = (num_applied - num_prev);
+        var array_index;
+        
+        if (num_present < 5) {
+            for (i = 0; i < num_present; i++) {
+                var accept = new Image(35, 35);
+                var reject = new Image(35, 35);
+                var waiting = new Image(35, 35);
+                accept.src = "../images/png/accepted.png";
+                reject.src = "../images/png/rejected.png";
+                waiting.src = "../images/png/waiting.png";
+                
+                array_index = num_prev + i;
+                $("span#title2_"+i.toString()).html(array_applied[array_index].title);
+                $("span#startdate2_"+i.toString()).html(ChangeFormatDate(array_applied[array_index].startDate));
+                $("span#plannername"+i.toString()).html(array_applied[array_index].writer);
+                switch(array_applied[array_index].application_status) {
+                    case "accepted":
+                        $("span#status"+i.toString()).html(accept);
+                        break;
+                    case "rejected":
+                        $("span#status"+i.toString()).html(reject);
+                        break;
+                    default:
+                        $("span#status"+i.toString()).html(waiting);
+                }
+            }
+            for (i = num_present; i < 5; i++) {
+                document.getElementById("eventA"+i.toString()).style.display = "none";
+            }
+        }
+        else {
+            for (i = 0; i < 5; i++) {
+                var accept = new Image(35, 35);
+                var reject = new Image(35, 35);
+                var waiting = new Image(35, 35);
+                accept.src = "../images/png/accepted.png";
+                reject.src = "../images/png/rejected.png";
+                waiting.src = "../images/png/waiting.png";
+                document.getElementById("eventA"+i.toString()).style.display = "";
+                
+                array_index = num_prev + i;
+                $("span#title2_"+i.toString()).html(array_applied[array_index].title);
+                $("span#startdate2_"+i.toString()).html(ChangeFormatDate(array_applied[array_index].startDate));
+                $("span#plannername"+i.toString()).html(array_applied[array_index].writer);
+                switch(array_applied[array_index].application_status) {
+                    case "accepted":
+                        $("span#status"+i.toString()).html(accept);
+                        break;
+                    case "rejected":
+                        $("span#status"+i.toString()).html(reject);
+                        break;
+                    default:
+                        $("span#status"+i.toString()).html(waiting);
+                }
+            }
+        }
+    }
+    
+    function MakePaginationHosted() {
+        $('.pagination1').bootpag({
+            total: Math.floor((num_hosted - 1)/5 + 1),
+            page: 1,
+            maxVisible: 5,
+            leaps: true,
+            next: '>',
+            prev: '<',
+            firstLastUse: true,
+            first: 'first',
+            last: 'last',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        }).on("page", function(event, num){
+            page_hosted = num;
+            ShowHostedEvents(num);
+        });
+    }
+    
+    function MakePaginationApplied() {
+        $('.pagination2').bootpag({
+            total: Math.floor((num_applied - 1)/5 + 1),
+            page: 1,
+            maxVisible: 5,
+            leaps: true,
+            next: '>',
+            prev: '<',
+            firstLastUse: true,
+            first: 'first',
+            last: 'last',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        }).on("page", function(event, num){
+            page_applied = num;
+            ShowAppliedEvents(num);
+        });
+    }
+    
+    function ResetHostedEvents() {
+        ShowHostedEvents(1);
+        
+        $('.pagination1').bootpag({
+            page: 1,
+        });
+        page_hosted = 1;
+    }
+    
+    function ResetAppliedEvents() {
+        ShowAppliedEvents(1);
+        
+        $('.pagination2').bootpag({
+            page: 1,
+        });
+        page_applied = 1;
+    }
+    
+    function ChangeFormatDate(prev_date) {
+        var array_date = prev_date.split("-");
+        var result_date = array_date[3] + ":" + array_date[4] + " " + MonthNumToString(array_date[1]) + " " + array_date[2] + ", " + array_date[0];
+        
+        return result_date;
+    }
+    
+    function MonthNumToString(month_num) {
+        switch(parseInt(month_num)) {
+            case 1:
+                return "Jan";
+            case 2:
+                return "Feb";
+            case 3:
+                return "Mar";
+            case 4:
+                return "Apr";
+            case 5:
+                return "May";
+            case 6:
+                return "Jun";
+            case 7:
+                return "Jul";
+            case 8:
+                return "Aug";
+            case 9:
+                return "Sept";
+            case 10:
+                return "Oct";
+            case 11:
+                return "Nov";
+            case 12:
+                return "Dec";
+        }
+    }
+    
+    function OpenDetailModal(nameOfList, eventIndex) {
+        if (nameOfList == "hosted") {
+//            openDetails("evt" + array_hosted[(page_hosted-1)*5+eventIndex].eventKey);
+            openApplicantList(array_hosted[(page_hosted-1)*5+eventIndex].eventKey);
+        }
+        else {
+            openDetails("evt" + array_applied[(page_applied-1)*5+eventIndex].eventKey);
+//            openApplicantList(array_applied[(page_applied-1)*5+eventIndex].eventKey);
+        }
+    }
+    
+</script>
+
+</html>

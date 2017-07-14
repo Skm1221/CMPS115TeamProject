@@ -1,0 +1,111 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+
+%%%%%%%%%%%%%%%%
+% Miscellaneous
+%%%%%%%%%%%%%%%%
+
+\definecolor{primary}{rgb}{0,0,.50}
+%\definecolor{primary}{rgb}{0,0,0}
+\definecolor{secondary}{rgb}{.7,.5,0}
+\definecolor{table-primary}{rgb}{1,1,1}
+\definecolor{table-secondary}{rgb}{.975,.99,1}
+
+%%%%%%%%%%%%%%%%
+% Title Section
+%%%%%%%%%%%%%%%%
+
+\title{\color{primary}\texttt{Installation Guide \\ UCSC Plaza}}
+\author{{\color{secondary}\textbf{Team Amlesh the Great}} \\ Kyungmin So (PO), Youngsoo Jang, \\ Hobin Ryu, Seungwoo Lee \\ Amlesh Sivanantham, and James Garbagnati }
+\date{July 25, 2016}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% User-Defined Macros
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\ignore = Multiline comments
+\newcommand{\ignore}[1]{}
+
+\newcommand{\gobblepagenum}{\thispagestyle{empty}\addtocounter{page}{-1}}
+
+%\fancysec{Section title}{Label} = Fancy, colored and labelled section
+% Basically just to make it easier to change the format of the whole doc
+% Commands with an X are non-numbered sections
+\newcommand{\fancysec}[2] {{\color{primary}\section{#1} \label{sec:#2}}}
+\newcommand{\fancysub}[2] {{\color{primary}\subsection{#1} \label{sec:#2}}}
+\newcommand{\fancysubsub}[2] {{\color{primary}\subsubsection{#1} \label{sec:#2}}}
+
+\newcommand{\fancysecX}[2] {{\color{primary}\section*{#1} \label{sec:#2}}}
+\newcommand{\fancysubX}[2] {{\color{primary}\subsection*{#1} \label{sec:#2}}}
+\newcommand{\fancysubsubX}[2] {{\color{primary}\subsubsection*{#1} \label{sec:#2}}}
+
+
+% P.S. I'm so fancy, you already know
+
+
+%%%%%%%%%%%%%%%%%
+% Begin Document
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\maketitle
+	
+	\fancysec{Setup}{setup}
+		\begin{itemize}
+			\item To Setup up this product, you will need to setup a web server. We recommend buying AWS, downloading Apache2, PHP5, and MySql. Follow their respective installation guides to set them all up with each other. Take the Github repository and store its contents in the folder "var/www"
+			\item Before you can host your server, you need to change the access database code in all php files (mysql id and password), and then make the database.
+			\item Our database is called ucscplaza, and it has 3 tables.
+			\begin{lstlisting}[frame = single]
+1.tbl_user
+CREATE TABLE tbl_user (
+user_key int(11) NOT NULL AUTO_INCREMENT,
+user_id varchar(45) DEFAULT NULL,
+user_passwd varchar(45) DEFAULT NULL,
+user_firstname varchar(45) DEFAULT NULL,
+user_lastname varchar(45) DEFAULT NULL,
+user_email varchar(45) DEFAULT NULL,
+user_division varchar(45) DEFAULT NULL,
+user_major varchar(45) DEFAULT NULL,
+PRIMARY KEY (user_key)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin12.tbl_event
+CREATE TABLE tbl_event (
+event_key int(11) NOT NULL AUTO_INCREMENT,
+event_title varchar(45) NOT NULL,
+event_major varchar(45) NOT NULL,
+event_category varchar(45) NOT NULL,
+event_start_date varchar(45) NOT NULL,
+event_end_date varchar(45) NOT NULL,
+event_description mediumtext NOT NULL,
+event_file varchar(45) DEFAULT NULL,
+event_max_att varchar(5) NOT NULL,
+event_location varchar(45) NOT NULL,
+event_latlng varchar(55) NOT NULL,
+event_rating varchar(5) NOT NULL DEFAULT '0',
+event_writer varchar(45) NOT NULL,
+event_homepage varchar(45) NOT NULL,
+PRIMARY KEY (event_key)
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin13.
+tbl_application
+CREATE TABLE tbl_application (
+application_key int(11) NOT NULL AUTO_INCREMENT,
+event_key int(11) NOT NULL,
+event_applier varchar(45) NOT NULL,
+application_status varchar(45) DEFAULT 'waiting',
+PRIMARY KEY (application_key),
+UNIQUE KEY applicaiton_key (application_key),
+UNIQUE KEY event_key (event_key,event_applier),
+UNIQUE KEY event_key_2 (event_key,event_applier)
+) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=latin1
+			\end{lstlisting}
+			\item If you wish you can set this up in a localhost.
+			
+		\end{itemize}
+
+	
+\end{document}

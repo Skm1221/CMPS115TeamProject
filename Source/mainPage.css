@@ -1,0 +1,292 @@
+/* Nav bar */
+#aLogout {
+  color: #FFFFFF;
+}
+
+#aLogout:hover {
+  color: #1F6764;
+}
+
+/* Main Container */
+
+main {
+  height: 87%;
+}
+
+#body {
+  height: 100%;
+  margin-bottom: 0px;
+}
+
+#info{
+  margin-top: -70px;
+  height: 100%;
+}
+
+/* Google Maps */
+
+#mapContainer {
+  height: 100%;
+}
+
+#mapholder {
+  height: 100%;
+  margin-top: 0px;
+  margin-bottom: -16px;
+  border-radius: 0px;
+  width: Calc(100% - 1px);
+}
+
+@media (min-width: 992px) {
+  #mapholder {
+    border-radius: 20px;
+    margin-top: 0.5%;
+    margin-bottom: 0px;
+  }
+}
+
+
+/* Event Search Bar */
+
+.eventSearch {
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+@media (min-width: 992px) {
+  .eventSearch {
+    margin-top: 0px;
+  }
+}
+
+#keywordSearchS {
+  height: 25px;
+  margin-top: 8px;
+  padding: 0px;
+  padding-left: 5px;
+}
+
+#keywordSearchL {
+  height: 25px;
+  margin-top: 8px;
+  padding: 0px;
+  padding-left: 5px;
+}
+
+.searchBar {
+  margin-left: 45px;
+  margin-top: -32px;
+  margin-bottom: -6px;
+  width: calc(100% - 30px);
+}
+
+/* Event List */
+
+#eventList {
+  margin-top: 0px;
+  margin-right: 1px;
+}
+
+@media (min-width: 992px) {
+  #eventList {
+    margin-top: 0px;
+  }
+}
+
+/* Buttons */
+
+.btnRow {
+  margin-right: 1.5%;
+}
+
+@media (min-width: 992px) {
+  .btnRow {
+    margin-right: 5%;
+  }
+}
+
+.topBtn:hover {
+  font-style: italic;
+}
+
+.filterBtn {
+  height: 45px;
+  width: 45px;
+  padding: 10px;
+  margin-bottom: -11px;
+  margin-left: -12px;
+}
+
+@media (min-width: 992px) {
+  .filterBtn {
+    margin-left: -12px;
+  }
+}
+
+.filterSearchBtn {
+  margin-top: 12px;
+  font-size: 25px;
+  line-height: 0;
+}
+
+#createEvent {
+  text-align: center;
+  font-size: 24px;
+}
+
+@media (min-width: 992px) {
+  #createEvent {
+    margin-top: 20px;
+  }
+}
+
+/* Input Boxes */
+
+.input-field textarea {
+  border: 2px solid #47ABA7;
+  border-radius: 10px;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: -5px 0px;
+}
+
+.input-field textarea:focus {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.valid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+.input-field textarea.invalid {
+  border: 2px solid #47ABA7;
+  box-shadow: 0 0 0 0 #47ABA7;
+}
+
+/* Header */
+
+.eventHeader {
+  padding-top: 30px;
+  padding-left: 25px;
+  padding-bottom: 0px;
+}
+
+.eventHeader h1 {
+  font-size: 26px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.eventHeader h3 {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
+
+.eventHeader h5 {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.starContainer {
+  height: 20px;
+  margin-top: 2px;
+  margin-left: 30px;
+  line-height: 0px;
+}
+
+.starContainer img {
+  height: 16px;
+  width: 16px;
+}
+
+/* Event Description and Details */
+
+.eventDescription {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.eventDescription a {
+  color: #FFA00B;
+}
+
+.eventDescription a:hover {
+  text-decoration: underline;
+}
+
+.eventDetails {
+  padding: 0px;
+  margin-top: -20px;
+  margin-bottom: -15px;
+}
+
+.eventDetails p {
+  margin-top: -60px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.eventDetails a {
+  margin-top: -30px;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  display: block;
+  color: #000;
+}
+
+.eventDetails a:hover {
+  text-decoration: underline;
+}
+  
+/* Event Reviews, Ratings, and Replies */
+
+.eventReviews h1 {
+  font-size: 25px;
+  margin-left: 6%;
+  margin-bottom: 20px;
+}
+
+.eventRatings p {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.eventReplies h1 {
+  font-size: 25px;
+  margin-left: 6%;
+  margin-top: 0px;
+}
+
+/* Event Icons */
+
+.eventIcons {
+  max-width: 80px;
+  max-height: 80px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.eventDetails i {
+  margin-top: 1px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 35px;
+}
+
+/* Misc */
+
+.collapsible-event li {
+  
+}
+
+.sectionDivider {
+  width: 95%;
+}

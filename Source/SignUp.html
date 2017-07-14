@@ -1,0 +1,372 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Muli:300,400|Open+Sans:300,600';
+        .SignUp-Title {
+            font-family: "Muli";
+            font-weight: 300;
+            font-size: 40px;
+            padding: 30px 0px 35px;
+            text-align: center;
+        }
+        .refresh {
+            text-decoration: none;
+            color: black;
+        }
+        .Box {
+            position: relative;
+            background: #d8d8d8;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 2px 2px 5px #888888;
+            margin: auto;
+        }
+        .Box h2 {
+            font-family: "Open Sans";
+            font-size: 12px;
+            margin: 0px 0px 5px;
+        }
+        .Box h3 {
+            font-family: "Open Sans";
+            font-size: 12px;
+            margin: 15px 0px 5px;
+        }
+        .Box h4 {
+            font-family: "Open Sans";
+            font-size: 12px;
+            margin: 15px 0px 5px;
+        }
+        .Box input {
+            display: block;
+            width: 100%;
+            border: 1px solid black;
+            padding: 8px 10px;
+        }
+        .Box input:focus {
+            outline: none;
+            border: 2px solid black;
+        }
+        .Box .Form {
+            padding: 30px 30px 20px;
+        }
+        .Box .AnotherForm {
+            padding: 15px 30px 20px;
+        }
+        .Box1 input {
+            display: inline-block;
+            width: 48%;
+        }
+        .Box1 input[name="First"] {
+            margin-right: 8px;
+        }
+        input::-webkit-input-placeholder {
+            font-family: "Open Sans";
+            font-size: 12px;
+        }
+        input[type="text"] {
+            font-family: "Open Sans";
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+        .Box button {
+            outline: none;
+            margin: 20px 0px 5px;
+            margin-left: 268px;
+            background: #8be0d2;
+            border-color: #1f6764;
+            border-width: thin;
+            padding: 5px 10px;
+            color: white;
+            font-family: "Open Sans";
+            font-size: 13px;
+            border-radius: 3px;
+            box-shadow: 2px 2px 5px #888888;
+        }
+        .Box button:hover {
+            cursor: pointer;
+            outline: none;
+            background: #5eb8b2;
+            border-color: #2f6562;
+        }
+        .Box1 select {
+            outline: none;
+            width: 48%;
+            border: 1px solid black;
+            font-family: "Open Sans";
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+        .Box1 select[name="First"] {
+            margin-right: 8px;
+        }
+        .check input {
+            display: inline-block;
+            width: 76%;
+            margin-right: 9px;
+        }
+        .check button {
+            position: absolute;
+            font-size: 6px;
+            margin: 0px 0px 0px;
+            padding: 1px 9px;
+        }
+        .check button[name="verify"] {
+            padding: 1px 14px;
+        }
+        #id_error_message, #mail_error_message, #key_error_message {
+            color: red;
+            font-family: "Open Sans";
+            font-weight: 300;
+            font-size: 12px;
+            margin: 5px 5px;
+        }
+        .verify h5 {
+            font-family: "Open Sans";
+            font-size: 12px;
+            margin: 15px 0px 5px;
+        }
+        .verify input {
+            display: inline-block;
+            width: 48%;
+            margin-right: 9px;
+        }
+        .verify button {
+            position: absolute;
+            font-size: 12px;
+            margin: 0px 0px 0px;
+        }
+        .error_message {
+            position: absolute;
+        }
+        #error_message {
+            color: red;
+            font-family: "Open Sans";
+            font-weight: 300;
+            font-size: 15px;
+            margin: 25px 0px 10px 30px;
+        }
+        .check span {
+            position: absolute;
+            margin: 7px 0px 0px 189px;
+            font-family: "Open Sans";
+            font-size: 12px;
+        }
+        .confirm button[name="first"] {
+            margin-left: 198px;
+        }
+        .confirm button[name="second"] {
+            margin-left: 5px;
+            background: #338885;
+        }
+        .confirm button[name="second"]:hover {
+            background: #1f6764;
+            border-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="SignUp-Title">
+        <a class="refresh" href="./SignUp.html">Create New UCSCPlaza Account</a>
+    </div>
+    <div class="Box">
+        <div class="Form">
+            <h2>Choose your new username</h2>
+            <div class="check">
+                <input id="User_id" type="text"/>
+                <button onclick="id_check()">Check<br/>Duplication</button>
+                <div id="id_error_message"></div>
+            </div>
+            <h3>Create a password</h3>
+            <input id="User_pw" type="password"/>
+            <h4>Confirm a password</h4>
+            <input id="User_pw_check" type="password"/>
+        </div>
+        <hr width="85%" align="center" color="white" size="2">
+        <div class="AnotherForm">
+            <h2>Name</h2>
+            <div class="Box1">
+                <input id="User_firstname" type="text" name="First" placeholder="First"/>
+                <input id="User_lastname" type="text" placeholder="Last"/>
+                <h3>Major &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; Division</h3>
+                <select id="User_major" name="First">
+                    <option value="Major" hidden>Major</option>
+                    <option class="Art" value="Art">Art</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Economics">Economics</option>
+                    <option value="History">History</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                </select>
+                <select id="User_division" name="Second">
+                    <option value="Division" hidden>Division</option>
+                    <option value="Division of the Arts">Division of the Arts</option>
+                    <option value="Division of Humanitiesiology">Division of Humanities</option>
+                    <option value="Division of Physical & Biological Sciences">Division of Physical & Biological Sciences</option>
+                    <option value="Division of Social Sciences">Division of Social Sciences</option>
+                    <option value="Jack Baskin School of Engineering">Jack Baskin School of Engineering</option>
+                </select>
+            </div>
+            <h4>Your UCSC email</h4>
+            <div class="check">
+                <span>@ucsc.edu</span>
+                <input id="User_email" type="text" name="email"/>
+                <button onclick="email_verification()" name="verify">Verify<br/>My Email</button>
+                <div id="mail_error_message"></div>
+            </div>
+            <div class="verify" id="hide" style="display:none;">
+                <h5>Check your email</h5>
+                <input id="User_private_key" type="text" name="privatekey" placeholder="Private Key"/>
+                <button onclick="key_verification()">Verify</button>
+                <div id="key_error_message"></div>
+            </div>
+            <div class="confirm">
+                <div class="error_message" id="error_message"></div>
+                <button name="first" onclick="sign_up()">Confirm</button>
+                <button name="second" onclick="return_loginPage()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var u_id, u_pw, u_firstname, u_lastname, u_major, u_division, u_email, u_key, checked_id, checked_mail;
+    var id_dupcheck, email_check;
+    var pKey;
+    id_dupcheck = false;
+    email_check = false;
+    
+    function capitalizeFirstLetter(user_input) {
+        return user_input.charAt(0).toUpperCase() + user_input.slice(1).toLowerCase();
+    }
+    
+    function sign_up() {
+        if (!id_dupcheck || checked_id != $("#User_id").val()) {
+            alert("Please Check the ID Duplication");
+        } else if ($("#User_pw").val() === "") {
+            alert("Please Enter your Password");
+        } else if ($("#User_pw_check").val() === "") {
+            alert("Please Confirm your Password");
+        } else if ($("#User_pw").val() != $("#User_pw_check").val()) {
+            alert("Passwords don't match");
+        } else if ($("#User_firstname").val() === "") {
+            alert("Please Enter your Firstname");
+        } else if ($("#User_lastname").val() === "") {
+            alert("Please Enter your Lastname");
+        } else if ($("#User_major").val() === "Major") {
+            alert("Please Choose your Major");
+        } else if ($("#User_division").val() === "Division") {
+            alert("Please Choose your Division");
+        } else if (!email_check || checked_mail != $("#User_email").val()) {
+            alert("Please Verify your UCSC E-mail");
+        } else{
+            u_id = $("#User_id").val();
+            u_pw = $("#User_pw").val();
+            u_firstname = capitalizeFirstLetter($("#User_firstname").val());
+            u_lastname = capitalizeFirstLetter($("#User_lastname").val());
+            u_major = $("#User_major").val();
+            u_division = $("#User_division").val();
+            u_email = $("#User_email").val();
+            $.ajax({
+                type: "POST",
+                url: "SignUp.php",
+                data: {
+                    "id" : u_id,
+                    "pw" : u_pw,
+                    "firstname" : u_firstname,
+                    "lastname" : u_lastname,
+                    "major" : u_major,
+                    "division" : u_division,
+                    "email" : u_email
+                },
+                success: function(html){
+                    if (html == "true") {
+                        window.location = "./Login_UCSC.html";
+                    } else {
+                        $("div#error_message").html("Sign up error!");
+                    }
+                },beforeSend: function(){
+                    $("div#error_message").html("Please wait a few seconds...");
+                }
+            })
+        }
+    }
+
+    function id_check() {
+        if ($("#User_id").val()==="") {
+            $("div#id_error_message").html("Enter ID");
+        } else {
+            u_id = $("#User_id").val();
+            $.ajax({
+                type: "POST",
+                url: "userNameDuplicationCheck.php",
+                data: {
+                    "id" : u_id
+                },
+                success: function(html) {
+                    if (html == "true") {
+                        id_dupcheck = true;
+                        checked_id = u_id;
+                        document.getElementById("id_error_message").style.display = "none";
+                        alert("You can use this username!");
+                    } else {
+                        $("div#id_error_message").html("Duplicated ID");
+                    }
+                }
+            })
+        }
+    }
+
+    function email_verification() {
+        if ($("#User_email").val()==="") {
+            $("div#mail_error_message").html("Enter email");
+        } else {
+            u_email = $("#User_email").val();
+            $.ajax({
+                type: "POST",
+                url: "sendPrivateKeyToEmail.php",
+                data: {
+                    "email" : u_email
+                },
+                success: function(html){
+                    $("div#mail_error_message").html("");
+                    html = JSON.parse(html);
+                    pKey = html.privateKey;
+                    var li = document.getElementById("hide");
+                    li.style.display = "block";
+                    checked_mail = u_email;
+                }
+            })
+        }
+    }
+
+    function key_verification() {
+        if ($("#User_private_key").val()==="") {
+            $("div#key_error_message").html("Enter key");
+        } else {
+            u_key = $("#User_private_key").val();
+            if (pKey==u_key) {
+                alert("Success");
+                var li = document.getElementById("hide");
+                li.style.display = "none";
+                email_check = true;
+            } else {
+                $("div#key_error_message").html("Enter right private key");
+            }
+        }
+    }
+    
+    function return_loginPage() {
+        window.location = "./Login_UCSC.html";
+    }
+</script>
+
+</html>

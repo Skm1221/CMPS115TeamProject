@@ -1,0 +1,64 @@
+#applicantList {
+    background-color: white;
+    height: 70%;
+    overflow-y: auto;
+}
+#applicantList .tabs .tab {
+    text-transform: none;
+    font-family: "Muli";
+    font-size: 18px;
+}
+.tabs .tab a[name="waiting"] {
+    color: #f8b62d;
+}
+.tabs .tab a:hover[name="waiting"] {
+    color: #f09d29;
+}
+.tabs .tab a[name="accepted"] {
+    color: #009944;
+}
+.tabs .tab a:hover[name="accepted"] {
+    color: #00793a;
+}
+.tabs .tab a[name="rejected"] {
+    color: #e60012;
+}
+.tabs .tab a:hover[name="rejected"] {
+    color: #c30d23;
+}
+#applicantList .tabs .indicator {
+    height: 1px;
+    background-color: #47aba7;
+}
+#applicantList .tabs .tab img{
+    vertical-align: middle;
+}
+.applicant {
+    padding-left: 20px;
+}
+.applicant h1 {
+    font-family: "Muli";
+    font-size: 18px;
+    color: #1f6764;
+    margin: 0px 0px 4px;
+}
+.applicant h2 {
+    font-family: "Muli";
+    font-size: 12px;
+    color: #898989;
+    margin: 0px 0px 4px;
+}
+.applicant h3 {
+    font-family: "Muli";
+    font-size: 12px;
+    color: #47aba7;
+    margin: 0px 0px 0px;
+}
+#applicantList td img {
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+}
+#applicantList td img:hover {
+    cursor: pointer;
+}
